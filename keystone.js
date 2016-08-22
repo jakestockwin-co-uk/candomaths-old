@@ -11,7 +11,7 @@ keystone.init({
 	'brand': 'CanDoMaths',
 
 	'sass': 'public',
-'static': 'public',
+	'static': 'public',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'jade',
@@ -33,7 +33,6 @@ keystone.set('locals', {
 });
 
 keystone.set('routes', require('./routes'));
-
 
 
 keystone.set('nav', {
