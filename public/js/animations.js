@@ -4,7 +4,13 @@ $(window).scroll(function () {
 });
 
 function animateWhenInViewport () {
-	$('.animate-viewport:in-viewport').addClass('animation-triggered');
+	viewportElems = $('.animate-viewport:in-viewport');
+	elems = $('.animate-viewport');
+	if (viewportElems.length === 0) {
+		elems.removeClass('animation-triggered');
+	} else {
+		viewportElems.addClass('animation-triggered');
+	}
 }
 
 var r = 150;
@@ -15,7 +21,7 @@ var elem2 = $('.coreIdea:nth-of-type(2)');
 var elem3 = $('.coreIdea:nth-of-type(3)');
 
 var anchor = $('#coreIdeasAnchor');
-var coreIdeas = $("#coreIdeas")
+var coreIdeas = $("#coreIdeas");
 
 function setSpeed () {
 	// height = how far from top of screen #coreIdeas is. 
