@@ -36,7 +36,7 @@ html
 	body
 
 		//- BODY
-		#body
+		#body(onscroll="console.log('test')")
 
 			//- NOTE:
 			//- There is no .container wrapping class around body blocks to allow more flexibility in design.
@@ -81,6 +81,8 @@ html
 			script(src='/keystone/js/content/editor.js')
 
 		//- Add scripts that are globally required by your site here.
+		script(src='/js/jquery/jquery.viewport.min.js')
+		script(src='/js/animationTriggers.js')
 
 		//- Include template-specific javascript files by extending the js block
 		block js

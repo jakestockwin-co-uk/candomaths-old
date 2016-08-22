@@ -1,6 +1,8 @@
 mixin essentials(essential)
 	if essential
-		.row
-			.col-xs-1: p!= essential.letter
-			.col-xs-2: p!= essential.name
-			.col-xs-9: p!= essential.description
+		.essential.fade-in.delay.animate-viewport
+			.essential-letter: h2!= essential.letter
+			.essential-wrapper
+				.essential-name: h3!= essential.name
+				.essential.description: p!= essential.description
+			
