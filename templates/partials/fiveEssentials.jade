@@ -1,0 +1,15 @@
+include ../mixins/essentials
+
+- var essentials = []
+- essentials.push({letter: 'C', name: 'Convince', description: 'Convincing, justifying and explaining to others'})
+- essentials.push({letter: 'A', name: 'Apply', description: 'Applying to different contexts, solving problems and making connections'})
+- essentials.push({letter: 'N', name: 'Not', description: 'Understanding what it is \'not\' as well as what it is'})
+- essentials.push({letter: 'D', name: 'Draw', description: 'Drawing the concept to \'see\' the maths, relationships and structures'})
+- essentials.push({letter: 'O', name: 'Ok', description: 'It\'s OK not to be able to do it......yet ..... and making mistakes is important'})
+
+h2 Five Essential for a CanDoMaths Classroom
+
+#fiveEssentials
+	for essential in essentials
+		+essentials(essential)
+		
