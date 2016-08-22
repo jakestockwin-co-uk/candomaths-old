@@ -41,6 +41,7 @@ keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
 	users: 'users',
+	content: ['resources', 'useful-links'],
 });
 
 keystone.start();

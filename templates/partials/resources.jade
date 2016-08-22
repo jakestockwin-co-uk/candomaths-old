@@ -1,10 +1,16 @@
+include ../mixins/links
+
 h1 Links and Resources
 .row
 	.col-md-6
 		h2 Useful Links
-		// TODO - Add and display useful links model
+		ul
+			each link in usefulLinks
+				+usefulLinks(link)
 		
 	.col-md-6
 		h2 Resources
-		// TODO - Add and display resources model
+		ul
+			each resource in resources
+				+resources(resource)
 		

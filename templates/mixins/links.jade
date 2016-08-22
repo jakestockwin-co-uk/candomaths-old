@@ -1,0 +1,7 @@
+mixin resources(resource)
+	if resource
+		li: a(href=resource.url)!=resource.name
+
+mixin usefulLinks(link)
+	if link
+		li: a(href=link.url)!=link.name
