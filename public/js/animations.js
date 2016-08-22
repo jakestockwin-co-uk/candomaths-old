@@ -1,6 +1,6 @@
 $(window).scroll(function () {
 	animateWhenInViewport();
-	setSpeed();
+	update();
 });
 
 function animateWhenInViewport () {
@@ -20,27 +20,50 @@ var elem1 = $('.coreIdea:nth-of-type(1)');
 var elem2 = $('.coreIdea:nth-of-type(2)');
 var elem3 = $('.coreIdea:nth-of-type(3)');
 
+var yesUCanAnimationTriggered = false;
+
 var anchor = $('#coreIdeasAnchor');
 var coreIdeas = $("#coreIdeas");
 
-function setSpeed () {
+function update () {
 	// height = how far from top of screen #coreIdeas is. 
 	var height = coreIdeas.offset().top-$(window).scrollTop();
 	if (height > -100) {
 		setNewSpeed(1);
 		setRadius(150);
 		anchor.css({'position':'absolute', 'top':'200px'});
+		if (yesUCanAnimationTriggered) {
+			resetYesUCanAnimation();
+		}
 	} else if (height < -1000) {
 		setNewSpeed(10);
 		anchor.css({'position':'absolute', 'top':'1200px'});
 		setRadius(50);
+		if (!yesUCanAnimationTriggered) {
+			triggerYesUCanAnimation();
+		}
 	} else {
 		setNewSpeed(-height/100);
 		anchor.css({'position':'fixed', 'top':'200px'});
 		if (height < -800) {
 			setRadius(150 + (800 + height)/2);
 		}
+		if (yesUCanAnimationTriggered) {
+			resetYesUCanAnimation();
+		}
 	}
+}
+
+function triggerYesUCanAnimation () {
+	$('.fade-out-1').addClass('animation-triggered');
+	$('#coreIdeasText').addClass('animation-triggered');
+	yesUCanAnimationTriggered = true;
+}
+
+function resetYesUCanAnimation(){
+	$('.fade-out-1').removeClass('animation-triggered');
+	$('#coreIdeasText').removeClass('animation-triggered');
+	yesUCanAnimationTriggered = false;
 }
 
 function setNewSpeed (input) {
