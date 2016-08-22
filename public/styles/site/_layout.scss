@@ -62,3 +62,34 @@
 .animation-delay .delay:nth-of-type(5) {
   transition-delay: $animation-delay * 4;
 }
+
+#coreIdeasAnimation {
+  min-height: 1600px;
+  max-width: 600px;
+  margin: auto;
+  position: relative;
+}
+
+#coreIdeasAnchor {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+ }
+
+.coreIdea {
+  position: absolute;
+  padding: 50px;
+  border-radius: 100px;
+  width: 150px;
+  height: 150px;
+}
+
+.coreIdea:nth-of-type(1) {
+  background-color: #00b3ee;
+}
+.coreIdea:nth-of-type(2) {
+  background-color: #7a43b6;
+}
+.coreIdea:nth-of-type(3) {
+  background-color: #985f0d;
+}
