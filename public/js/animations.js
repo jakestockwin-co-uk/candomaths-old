@@ -15,10 +15,11 @@ var elem2 = $('.coreIdea:nth-of-type(2)');
 var elem3 = $('.coreIdea:nth-of-type(3)');
 
 var anchor = $('#coreIdeasAnchor');
+var coreIdeas = $("#coreIdeas")
 
 function setSpeed () {
 	// height = how far from top of screen #coreIdeas is. 
-	var height = $("#coreIdeas").offset().top-$(window).scrollTop();
+	var height = coreIdeas.offset().top-$(window).scrollTop();
 	if (height > -100) {
 		setNewSpeed(1);
 		setRadius(150);
