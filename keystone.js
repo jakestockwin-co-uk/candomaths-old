@@ -23,6 +23,10 @@ keystone.init({
 
 });
 
+if (keystone.get('env') === 'production') {
+	keystone.set('session store', 'connect-mongo');
+}
+
 keystone.import('models');
 
 keystone.set('locals', {
