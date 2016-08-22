@@ -25,7 +25,6 @@ function setSpeed () {
 		setRadius(150);
 		anchor.css({'position':'absolute', 'top':'200px'});
 	} else if (height < -1000) {
-		console.log("Case 2");
 		setNewSpeed(10);
 		anchor.css({'position':'absolute', 'top':'1200px'});
 		setRadius(50);
