@@ -1,16 +1,13 @@
 include ../mixins/links
 
 h1 Links and Resources
-.row
-	.col-md-6
-		h2 Useful Links
-		ul
-			each link in usefulLinks
-				+usefulLinks(link)
-		
-	.col-md-6
-		h2 Resources
-		ul
-			each resource in resources
-				+resources(resource)
-		
+	h2 Useful Links
+	ul
+		each link in usefulLinks
+			+usefulLinks(link)
+			
+	h2 Resources
+	ul
+		each resource in resources
+			+resources(resource)
+	

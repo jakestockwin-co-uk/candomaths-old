@@ -3,15 +3,15 @@
 
 var startSpeed = 1;
 var endSpeed = 10;
-var startSpeedChangeTime = 0.2;
-var endSpeedChangeTime = 0.5;
+var startSpeedChangeTime = 0.5;
+var endSpeedChangeTime = 0.8;
 var startRadius = 150;
 var endRaduis = 0;
-var startRaduisChangeTime = 0.4;
-var endRaduisChangeTime = 0.5;
-var triggerCanDoMathsTime = 0.45;
+var startRaduisChangeTime = 0.7;
+var endRaduisChangeTime = 0.8;
+var triggerCanDoMathsTime = 0.75;
 
-var animationDuration = 4000;
+var animationDuration = 2500;
 
 // End inputs
 
@@ -27,19 +27,6 @@ var speed = startSpeed;
 var newSpeed = speed;
 var canDoMathsTriggered = false;
 
-$(window).scroll(function () {
-	animateWhenInViewport();
-});
-
-function animateWhenInViewport () {
-	viewportElems = $('.animate-viewport:in-viewport');
-	elems = $('.animate-viewport');
-	if (viewportElems.length === 0) {
-		elems.removeClass('animation-triggered');
-	} else {
-		viewportElems.addClass('animation-triggered');
-	}
-}
 
 var elem1 = $('.coreIdea:nth-of-type(1)');
 var elem2 = $('.coreIdea:nth-of-type(2)');
