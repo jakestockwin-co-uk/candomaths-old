@@ -70,36 +70,53 @@ function setRadius (radius) {
 var i = 0;
 var j=0;
 
+var pause = false;
+
+function pauseAnimation () {
+	pause = !pause;
+}
+
 setInterval(function() {
 	++i;
 	++j;
-	if (speed !== newSpeed) {
-		// The following block of code should prevent the animation jumping when the speed is changed. 
-		// Without this, speed increasing completely changes where we are in the cycle. 
-		// This ensures that i*speed/1000 is the same as i*newSpeed/1000 (modulo 2)
-		// and hence Math.PI * (i*speed/1000) is unchanged (modulo 2*PI)
-		var position = (i*speed/1000)%2;
-		i=Math.floor(position*1000/newSpeed);
-		speed=newSpeed;
-	}
-	elem1.css({'left': Math.sin(Math.PI * (i*speed/1000)) * r, 'top': Math.cos(Math.PI * (i*speed/1000)) * r});
-	elem2.css({'left': Math.sin(Math.PI * (i*speed/1000 + 2 / 3)) * r, 'top': Math.cos(Math.PI * (i*speed/1000 + 2 / 3)) * r});
-	elem3.css({'left': Math.sin(Math.PI * (i*speed/1000 + 4 / 3)) * r, 'top': Math.cos(Math.PI * (i*speed/1000 + 4 / 3)) * r});
-	
-	if (j%10 === 0) {
-		if (j > startSpeedChangeTime && j < endSpeedChangeTime) {
-			setNewSpeed(startSpeed + (endSpeed - startSpeed)*(j - startSpeedChangeTime)/(endSpeedChangeTime - startSpeedChangeTime));
+	if (!pause) {
+		if (speed !== newSpeed) {
+			// The following block of code should prevent the animation jumping when the speed is changed. 
+			// Without this, speed increasing completely changes where we are in the cycle. 
+			// This ensures that i*speed/1000 is the same as i*newSpeed/1000 (modulo 2)
+			// and hence Math.PI * (i*speed/1000) is unchanged (modulo 2*PI)
+			var position = (i * speed / 1000) % 2;
+			i = Math.floor(position * 1000 / newSpeed);
+			speed = newSpeed;
 		}
-		if (j > startRaduisChangeTime && j < endRaduisChangeTime) {
-			setRadius(startRadius + (endRaduis - startRadius)*(startRaduisChangeTime - j)/(startRaduisChangeTime - endRaduisChangeTime));
+		elem1.css({
+			'left': Math.sin(Math.PI * (i * speed / 1000)) * r,
+			'top': Math.cos(Math.PI * (i * speed / 1000)) * r
+		});
+		elem2.css({
+			'left': Math.sin(Math.PI * (i * speed / 1000 + 2 / 3)) * r,
+			'top': Math.cos(Math.PI * (i * speed / 1000 + 2 / 3)) * r
+		});
+		elem3.css({
+			'left': Math.sin(Math.PI * (i * speed / 1000 + 4 / 3)) * r,
+			'top': Math.cos(Math.PI * (i * speed / 1000 + 4 / 3)) * r
+		});
+
+		if (j % 10 === 0) {
+			if (j > startSpeedChangeTime && j < endSpeedChangeTime) {
+				setNewSpeed(startSpeed + (endSpeed - startSpeed) * (j - startSpeedChangeTime) / (endSpeedChangeTime - startSpeedChangeTime));
+			}
+			if (j > startRaduisChangeTime && j < endRaduisChangeTime) {
+				setRadius(startRadius + (endRaduis - startRadius) * (startRaduisChangeTime - j) / (startRaduisChangeTime - endRaduisChangeTime));
+			}
+			if (j > triggerCanDoMathsTime && !canDoMathsTriggered) {
+				triggerCanDoMathsAnimation()
+			}
 		}
-		if (j > triggerCanDoMathsTime && !canDoMathsTriggered) {
-			triggerCanDoMathsAnimation()
+
+		if (j === animationDuration) {
+			j = 0;
+			resetAnimation();
 		}
-	}
-	
-	if (j === animationDuration) {
-		j = 0;
-		resetAnimation();
 	}
 }, 1);

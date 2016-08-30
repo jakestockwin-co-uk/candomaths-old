@@ -118,18 +118,26 @@
 
 .coreIdea {
   position: absolute;
-  padding: 50px;
-  border-radius: 100px;
-  width: 150px;
+  display: table;
+  background: black;
+  border-radius: 50%;
   height: 150px;
+  width: 150px;
+  margin: 0;
+}
+
+.coreIdeaContent {
+  display: table-cell;
+  vertical-align: middle;
+  color: #FFF;
 }
 
 .coreIdea:nth-of-type(1) {
-  background-color: #00b3ee;
+  background: radial-gradient(circle at 30px 30px, #00b3ee, #000);
 }
 .coreIdea:nth-of-type(2) {
-  background-color: #7a43b6;
+  background: radial-gradient(circle at 30px 30px, #7a43b6, #000);
 }
 .coreIdea:nth-of-type(3) {
-  background-color: #985f0d;
+  background: radial-gradient(circle at 30px 30px, #985f0d, #000);
 }
