@@ -3,24 +3,28 @@
 
 var startSpeed = 1;
 var endSpeed = 10;
-var startSpeedChangeTime = 0.5;
-var endSpeedChangeTime = 0.8;
+var startSpeedChangeTime = 0.3;
+var endSpeedChangeTime = 0.7;
 var startRadius = 150;
-var endRaduis = 0;
-var startRaduisChangeTime = 0.7;
-var endRaduisChangeTime = 0.8;
-var triggerCanDoMathsTime = 0.75;
+var endRaduis = 60;
+var startRaduisChangeTime = 0.6;
+var endRaduisChangeTime = 0.7;
+var triggerCanDoMathsTime = 0.65;
+var triggerStopMovingTime = 0.8;
 
-var animationDuration = 2500;
+var animationDuration = 2000;
 
 // End inputs
 
 
-startSpeedChangeTime = startSpeedChangeTime * animationDuration;
-endSpeedChangeTime = endSpeedChangeTime * animationDuration;
-startRaduisChangeTime = startRaduisChangeTime * animationDuration;
-endRaduisChangeTime = endRaduisChangeTime * animationDuration;
-triggerCanDoMathsTime = triggerCanDoMathsTime * animationDuration;
+startSpeedChangeTime *= animationDuration;
+endSpeedChangeTime *= animationDuration;
+startRaduisChangeTime *= animationDuration;
+endRaduisChangeTime *= animationDuration;
+triggerCanDoMathsTime *= animationDuration;
+triggerStopMovingTime *= animationDuration;
+const midSpeed = endSpeed/2;
+const speedDecayCoefficient = 1.02
 
 var r = startRadius;
 var speed = startSpeed;
@@ -31,10 +35,11 @@ var canDoMathsTriggered = false;
 var elem1 = $('.coreIdea:nth-of-type(1)');
 var elem2 = $('.coreIdea:nth-of-type(2)');
 var elem3 = $('.coreIdea:nth-of-type(3)');
+var img = $('#coreIdeasImage');
 
 function triggerCanDoMathsAnimation () {
 	$('.fade-out-1').addClass('animation-triggered');
-	$('#coreIdeasText').addClass('animation-triggered');
+	$('#coreIdeasImage').addClass('animation-triggered');
 	canDoMathsTriggered = true;
 }
 
@@ -42,7 +47,7 @@ function resetAnimation(){
 	setNewSpeed(startSpeed);
 	setRadius(startRadius);
 	$('.fade-out-1').removeClass('animation-triggered');
-	$('#coreIdeasText').removeClass('animation-triggered');
+	$('#coreIdeasImage').removeClass('animation-triggered');
 	canDoMathsTriggered = false;
 }
 
@@ -73,7 +78,12 @@ setInterval(function() {
 			// This ensures that i*speed/1000 is the same as i*newSpeed/1000 (modulo 2)
 			// and hence Math.PI * (i*speed/1000) is unchanged (modulo 2*PI)
 			var position = (i * speed / 1000) % 2;
-			i = Math.floor(position * 1000 / newSpeed);
+			if (newSpeed > 0) {
+				i = Math.floor(position * 1000 / newSpeed);
+			} else {
+				i=0;
+			}
+			
 			speed = newSpeed;
 		}
 		elem1.css({
@@ -88,6 +98,7 @@ setInterval(function() {
 			'left': Math.sin(Math.PI * (i * speed / 1000 + 4 / 3)) * r,
 			'top': Math.cos(Math.PI * (i * speed / 1000 + 4 / 3)) * r
 		});
+		img.css({'transform': 'rotate(-' + Math.PI * (i * speed / 1000) + 'rad)'});
 
 		if (j % 10 === 0) {
 			if (j > startSpeedChangeTime && j < endSpeedChangeTime) {
@@ -100,10 +111,21 @@ setInterval(function() {
 				triggerCanDoMathsAnimation()
 			}
 		}
+		
+		if (j > triggerStopMovingTime) {
+			if ((i * speed / 1000) % 2 < 0.1) {
+				setNewSpeed(0);
+			} else if (speed > midSpeed) {
+				setNewSpeed(endSpeed - (endSpeed - speed)*speedDecayCoefficient);
+			} else {
+				setNewSpeed(speed/speedDecayCoefficient);
+			}
+		}
 
-		if (j === animationDuration) {
+		if (j >= animationDuration) {
 			j = 0;
 			resetAnimation();
 		}
 	}
+	
 }, 1);
