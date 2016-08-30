@@ -173,3 +173,8 @@
 .coreIdea:nth-of-type(3) {
   background: radial-gradient(circle at 30px 30px, #fcecc3 0%, #FFC338 40%, #31260a 150%);
 }
+
+#twitter {
+  max-height: 500px;
+  overflow-y: scroll;
+}
