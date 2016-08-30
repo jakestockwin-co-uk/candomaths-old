@@ -1,6 +1,34 @@
+// Treat these as configurable inputs.
+// All 'times' aside from animationDuration should be done as a percentage.
+
+var startSpeed = 1;
+var endSpeed = 10;
+var startSpeedChangeTime = 0.2;
+var endSpeedChangeTime = 0.5;
+var startRadius = 150;
+var endRaduis = 0;
+var startRaduisChangeTime = 0.4;
+var endRaduisChangeTime = 0.5;
+var triggerCanDoMathsTime = 0.45;
+
+var animationDuration = 4000;
+
+// End inputs
+
+
+startSpeedChangeTime = startSpeedChangeTime * animationDuration;
+endSpeedChangeTime = endSpeedChangeTime * animationDuration;
+startRaduisChangeTime = startRaduisChangeTime * animationDuration;
+endRaduisChangeTime = endRaduisChangeTime * animationDuration;
+triggerCanDoMathsTime = triggerCanDoMathsTime * animationDuration;
+
+var r = startRadius;
+var speed = startSpeed;
+var newSpeed = speed;
+var canDoMathsTriggered = false;
+
 $(window).scroll(function () {
 	animateWhenInViewport();
-	update();
 });
 
 function animateWhenInViewport () {
@@ -13,57 +41,22 @@ function animateWhenInViewport () {
 	}
 }
 
-var r = 150;
-var speed = 1;
-var newSpeed = speed;
 var elem1 = $('.coreIdea:nth-of-type(1)');
 var elem2 = $('.coreIdea:nth-of-type(2)');
 var elem3 = $('.coreIdea:nth-of-type(3)');
 
-var yesUCanAnimationTriggered = false;
-
-var anchor = $('#coreIdeasAnchor');
-var coreIdeas = $("#coreIdeas");
-
-function update () {
-	// height = how far from top of screen #coreIdeas is. 
-	var height = coreIdeas.offset().top-$(window).scrollTop();
-	if (height > -100) {
-		setNewSpeed(1);
-		setRadius(150);
-		anchor.css({'position':'absolute', 'top':'200px'});
-		if (yesUCanAnimationTriggered) {
-			resetYesUCanAnimation();
-		}
-	} else if (height < -1000) {
-		setNewSpeed(10);
-		anchor.css({'position':'absolute', 'top':'1200px'});
-		setRadius(50);
-		if (!yesUCanAnimationTriggered) {
-			triggerYesUCanAnimation();
-		}
-	} else {
-		setNewSpeed(-height/100);
-		anchor.css({'position':'fixed', 'top':'200px'});
-		if (height < -800) {
-			setRadius(150 + (800 + height)/2);
-		}
-		if (yesUCanAnimationTriggered) {
-			resetYesUCanAnimation();
-		}
-	}
-}
-
-function triggerYesUCanAnimation () {
+function triggerCanDoMathsAnimation () {
 	$('.fade-out-1').addClass('animation-triggered');
 	$('#coreIdeasText').addClass('animation-triggered');
-	yesUCanAnimationTriggered = true;
+	canDoMathsTriggered = true;
 }
 
-function resetYesUCanAnimation(){
+function resetAnimation(){
+	setNewSpeed(startSpeed);
+	setRadius(startRadius);
 	$('.fade-out-1').removeClass('animation-triggered');
 	$('#coreIdeasText').removeClass('animation-triggered');
-	yesUCanAnimationTriggered = false;
+	canDoMathsTriggered = false;
 }
 
 function setNewSpeed (input) {
@@ -75,8 +68,11 @@ function setRadius (radius) {
 }
 
 var i = 0;
+var j=0;
+
 setInterval(function() {
 	++i;
+	++j;
 	if (speed !== newSpeed) {
 		// The following block of code should prevent the animation jumping when the speed is changed. 
 		// Without this, speed increasing completely changes where we are in the cycle. 
@@ -89,4 +85,21 @@ setInterval(function() {
 	elem1.css({'left': Math.sin(Math.PI * (i*speed/1000)) * r, 'top': Math.cos(Math.PI * (i*speed/1000)) * r});
 	elem2.css({'left': Math.sin(Math.PI * (i*speed/1000 + 2 / 3)) * r, 'top': Math.cos(Math.PI * (i*speed/1000 + 2 / 3)) * r});
 	elem3.css({'left': Math.sin(Math.PI * (i*speed/1000 + 4 / 3)) * r, 'top': Math.cos(Math.PI * (i*speed/1000 + 4 / 3)) * r});
+	
+	if (j%10 === 0) {
+		if (j > startSpeedChangeTime && j < endSpeedChangeTime) {
+			setNewSpeed(startSpeed + (endSpeed - startSpeed)*(j - startSpeedChangeTime)/(endSpeedChangeTime - startSpeedChangeTime));
+		}
+		if (j > startRaduisChangeTime && j < endRaduisChangeTime) {
+			setRadius(startRadius + (endRaduis - startRadius)*(startRaduisChangeTime - j)/(startRaduisChangeTime - endRaduisChangeTime));
+		}
+		if (j > triggerCanDoMathsTime && !canDoMathsTriggered) {
+			triggerCanDoMathsAnimation()
+		}
+	}
+	
+	if (j === animationDuration) {
+		j = 0;
+		resetAnimation();
+	}
 }, 1);
