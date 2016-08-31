@@ -178,3 +178,25 @@
   max-height: 500px;
   overflow-y: scroll;
 }
+
+.resourceLink {
+  list-style-type: none;
+  background-color: #f4f4f4;
+  box-shadow: 5px 5px 2px #aaaaaa;
+  padding: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: #333333;
+}
+
+.resourceLink:hover {
+  background-color: #e5e5e5;
+}
+
+.no-text-decoration:hover{
+  text-decoration: none;
+}
+
+.no-text-decoration:focus{
+  text-decoration: none;
+}
