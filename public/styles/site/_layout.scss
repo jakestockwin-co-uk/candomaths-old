@@ -179,7 +179,7 @@
   overflow-y: scroll;
 }
 
-.resourceLink {
+.card {
   list-style-type: none;
   background-color: #f4f4f4;
   box-shadow: 5px 5px 2px #aaaaaa;
@@ -187,16 +187,17 @@
   margin-top: 15px;
   margin-bottom: 15px;
   color: #333333;
+  border-radius: 5px;
 }
 
-.resourceLink:hover {
+.card:hover {
   background-color: #e5e5e5;
 }
 
-.no-text-decoration:hover{
+.cardLink:hover{
   text-decoration: none;
 }
 
-.no-text-decoration:focus{
+.cardLink:focus{
   text-decoration: none;
 }
