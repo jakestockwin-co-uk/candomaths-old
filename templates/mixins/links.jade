@@ -1,13 +1,13 @@
 mixin resources(resource)
 	if resource
 		li
-			a(href=resource.link)!=resource.name
+			a(href=resource.link target="_blank")!=resource.name
 			if resource.description
 				p!=resource.description
 
 mixin usefulLinks(link)
 	if link
 		li
-			a(href=link.link)!=link.name
+			a(href=link.link target="_blank")!=link.name
 			if link.description
 				p!=link.description
