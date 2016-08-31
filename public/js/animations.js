@@ -3,16 +3,16 @@
 
 var startSpeed = 1;
 var endSpeed = 10;
-var startSpeedChangeTime = 0.3;
-var endSpeedChangeTime = 0.7;
+var startSpeedChangeTime = 0.25;
+var endSpeedChangeTime = 0.6;
 var startRadius = 150;
 var endRaduis = 60;
-var startRaduisChangeTime = 0.6;
-var endRaduisChangeTime = 0.7;
-var triggerCanDoMathsTime = 0.65;
-var triggerStopMovingTime = 0.8;
+var startRaduisChangeTime = 0.5;
+var endRaduisChangeTime = 0.6;
+var triggerCanDoMathsTime = 0.55;
+var triggerStopMovingTime = 0.7;
 
-var animationDuration = 2000;
+var animationDuration = 2500;
 
 // End inputs
 
