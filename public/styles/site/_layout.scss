@@ -1,3 +1,8 @@
+@font-face {
+  font-family: pequena;
+  src: url('/fonts/Pequena.otf')
+}
+
 #header {
   margin-top: 30px;
 }
@@ -156,6 +161,7 @@
   height: 150px;
   width: 150px;
   margin: 0;
+  font-family: pequena;
 }
 
 .coreIdeaContent {
@@ -200,4 +206,8 @@
 
 .cardLink:focus{
   text-decoration: none;
+}
+
+h1, h2, h3 {
+  font-family: pequena;
 }
