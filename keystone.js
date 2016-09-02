@@ -21,6 +21,8 @@ keystone.init({
 	'auth': true,
 	'user model': 'User',
 
+	'model prefix': 'candomaths',
+
 });
 
 if (keystone.get('env') === 'production') {
