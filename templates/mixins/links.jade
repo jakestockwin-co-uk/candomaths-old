@@ -2,14 +2,16 @@ mixin resources(resource)
 	if resource
 		a(href=resource.link target="_blank").cardLink
 			li.card
-				h4!=resource.name
+				h4.linkTitle!=resource.name
 				if resource.description
-					p!=resource.description
+					.linkDescription
+						p!=resource.description
 
 mixin usefulLinks(link)
 	if link
 		a(href=link.link target="_blank").cardLink
 			li.card
-				h4!=link.name
+				h4.linkTitle!=link.name
 				if link.description
-					p!=link.description
+					.linkDescription
+						p!=link.description

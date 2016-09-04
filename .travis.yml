@@ -3,8 +3,15 @@ language: node_js
 node_js:
 - '6'
 
+env:
+  - BROWSER='firefox'
+
+before_script:
+  - npm run lint
+  - sleep 15
+
 script:
-- npm run lint
+  - npm run test-travis
 
 before_deploy:
 - wget https://raw.githubusercontent.com/jakestockwin-co-uk/deployment/master/travis-deploy.sh
@@ -25,3 +32,8 @@ notifications:
   slack:
     secure: eO/472Yf0d69rlCBsCDw+uvoyDZeZXsPvUVX+Ixz6PcAAuVhzbbXKacFGChD3PuvoHEf+sRIqrPdPCcywqvGt2vzDMpCkEj67dIfUxkJYcjNn/h0zyW66QAIvogxJylp5b6MiAtIp2vs0tLayX4F7t5H/EFNYrJtqKZ8oq2BlABlTo5gC2Fsw5ezrL44xzSsrnVEfM+ijApenshzJo8Rmb/cb+pmMKEqQj12efMBFcoyqmODV/XQQu8HCDLCaRWFytS3AxFVQl1Ipy6Xhh/+BJR1NghBANzk5oFQwTwlVJ00q5h3eIA2Q02E+QMZXYEXrpKyXiTfzPHFoTIwghP5tfsxr4qEqV6LbPShkYOMKKXNphth/qhnrsG6HWLrDToW5rjmroUaeR+TV6S0FAH1fii/ouKqnNiRLgy9SX1TsKU+n1xHcPAzkvY7VqQShyV82ID0jjGMY7ibDY74wM2qxlswEzNzAcgAg0Ya+L/UZ021tvy1Rp+WEWRtgKUMuWXi6MsE216TjuVShHvC1BE9A9IHesnCei9vR5hf0VZikUaVJmmoMIuyQAaBEh0WmKc+Dk+bnTZqA1fjrzOkRJi9fngmCsNKiWle7OEdyF5iVl46zyDPbwq3bODlCcgomiC5HQYvgzVUvkiGnRA7hWi2Iv+h4R5t0KsDDdZwHjf14Zw=
   email: false
+
+addons:
+  sauce_connect: true
+
+services: mongodb

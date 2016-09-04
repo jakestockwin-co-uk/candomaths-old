@@ -32,3 +32,5 @@ node_modules
 
 .idea/
 *.css
+
+tests/reports/
