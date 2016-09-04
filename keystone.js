@@ -40,6 +40,8 @@ keystone.init({
 	'auth': true,
 	'user model': 'User',
 
+	'cookie secret': process.env.COOKIE_SECRET,
+
 	'model prefix': 'candomaths',
 
 });
