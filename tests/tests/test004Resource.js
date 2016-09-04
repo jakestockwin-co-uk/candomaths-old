@@ -1,4 +1,4 @@
-var ResourceModelTestConfig = require('../modelTestConfig/ResourceModelTestConfig');
+var ResourceModelTestConfig = require('../modelTestConfig/resourceModelTestConfig');
 
 module.exports = {
 	'before': function (browser) {
