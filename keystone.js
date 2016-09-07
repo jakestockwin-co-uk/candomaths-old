@@ -25,59 +25,64 @@ if (test) {
 var dbName = test ? '/test' : '/candomaths';
 var mongoUri = test ? 'mongodb://' + (keystone.get('host') || 'localhost') + dbName : process.env.MONGO_URI || 'mongodb://' + (keystone.get('host') || 'localhost') + dbName;
 
-keystone.init({
 
-	'name': 'CanDoMaths',
-	'brand': 'CanDoMaths',
+function configureKeystone () {
+	keystone.init({
 
-	'sass': 'public',
-	'static': 'public',
-	'favicon': 'public/favicon.ico',
-	'views': 'templates/views',
-	'view engine': 'jade',
+		'name': 'CanDoMaths',
+		'brand': 'CanDoMaths',
 
-	'mongo': mongoUri,
+		'sass': 'public',
+		'static': 'public',
+		'favicon': 'public/favicon.ico',
+		'views': 'templates/views',
+		'view engine': 'jade',
 
-	'auto update': true,
-	'session': true,
-	'auth': true,
-	'user model': 'User',
+		'mongo': mongoUri,
 
-	'cookie secret': process.env.COOKIE_SECRET,
+		'auto update': true,
+		'session': true,
+		'auth': true,
+		'user model': 'User',
 
-	'model prefix': 'candomaths',
+		'cookie secret': process.env.COOKIE_SECRET,
 
-});
+		'model prefix': 'candomaths',
 
-if (keystone.get('env') === 'production') {
-	keystone.set('session store', 'connect-mongo');
+	});
+
+	if (keystone.get('env') === 'production') {
+		keystone.set('session store', 'connect-mongo');
+	}
+
+	keystone.import('models');
+
+	keystone.set('locals', {
+		_: require('underscore'),
+		env: keystone.get('env'),
+		utils: keystone.utils,
+		editable: keystone.content.editable,
+	});
+
+	keystone.set('routes', require('./routes'));
+
+	keystone.set('host', process.env.IP || 'localhost');
+	keystone.set('port', process.env.PORT || '3000');
+
+
+	keystone.set('nav', {
+		users: 'users',
+		content: ['resources', 'useful-links'],
+		emails: 'emails',
+	});
+
+	if (keystone.get('env') === 'production') {
+		keystone.set('session store', 'connect-mongo');
+	}
 }
 
-keystone.import('models');
-
-keystone.set('locals', {
-	_: require('underscore'),
-	env: keystone.get('env'),
-	utils: keystone.utils,
-	editable: keystone.content.editable,
-});
-
-keystone.set('routes', require('./routes'));
-
-keystone.set('host', process.env.IP || 'localhost');
-keystone.set('port', process.env.PORT || '3000');
-
-
-keystone.set('nav', {
-	users: 'users',
-	content: ['resources', 'useful-links'],
-	emails: 'emails',
-});
-
-if (keystone.get('env') === 'production') {
-	keystone.set('session store', 'connect-mongo');
-}
 if (!test) {
+	configureKeystone();
 	keystone.start();
 } else {
 	runTests();
@@ -157,6 +162,11 @@ function runTests () {
 			}	else {
 				cb();
 			}
+		},
+
+		function (cb) {
+			configureKeystone();
+			cb();
 		},
 
 		function (cb) {
