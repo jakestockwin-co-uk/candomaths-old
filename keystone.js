@@ -71,6 +71,7 @@ keystone.set('port', process.env.PORT || '3000');
 keystone.set('nav', {
 	users: 'users',
 	content: ['resources', 'useful-links'],
+	emails: 'emails',
 });
 
 if (keystone.get('env') === 'production') {

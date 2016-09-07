@@ -1,0 +1,25 @@
+h1 Contact Us
+p
+	| If you're interested in our work, and would like to be kept updated, then please fill in
+	| the form below to be signed up to our mailing list.
+
+form(method='post' onSubmit='handleSubmit(event)').form-horizontal#emailForm
+	.form-group
+		label.col-sm-2.text-left.control-label Name
+		.col-sm-10
+			input(type='text' name='name' required placeholder="Enter your full name" id='emailFormName').form-control
+			p(id='emailFormNameText')
+	.form-group
+		label.col-sm-2.control-label Email
+		.col-sm-10
+			input(type='email' name='email' required placeholder="Enter your email" id='emailFormEmail').form-control
+			p(id='emailFormEmailText')
+	.form-group
+		.col-sm-10.col-sm-offset-2
+			button(type='submit').btn.btn-primary#emailFormSubmit Submit
+	.form-group
+		.col-sm-10.col-sm-offset-2
+			p#emailFormMessage
+
+block js
+	script(src='/js/contact.js')

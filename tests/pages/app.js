@@ -8,12 +8,20 @@ module.exports = {
 		fiveEssentials: '#fiveEssentials',
 		coreIdeas: '#coreIdeas',
 		resources: '#resources',
+		contact: '#contact',
+		contactName: '#emailFormName',
+		contactNameText: '#emailFormNameText',
+		contactEmail: '#emailFormEmail',
+		contactEmailText: '#emailFormEmailText',
+		contactSubmit: '#emailFormSubmit',
+		contactMessage: '#emailFormMessage',
 	},
 	commands: [{
 		assertUI: function () {
 			this.expect.element('@fiveEssentials').to.be.present;
 			this.expect.element('@coreIdeas').to.be.present;
 			this.expect.element('@resources').to.be.present;
+			this.expect.element('@contact').to.be.present;
 			return this;
 		},
 		assertNthUsefulLink: function (n, title, href, description) {
@@ -51,6 +59,19 @@ module.exports = {
 		assertNthResourceDescription: function (n, description) {
 			this.expect.element(getNthResourceDescriptionSelector(n)).text.to.equal(description);
 			return this;
+		},
+		fillContactForm: function (name, email) {
+			this.clearValue('@contactName');
+			this.setValue('@contactName', name);
+			this.clearValue('@contactEmail');
+			this.setValue('@contactEmail', email);
+			this.click('@contactSubmit');
+		},
+		assertContactFormSuccess: function () {
+			this.expect.element('@contactNameText').text.to.equal('');
+			this.expect.element('@contactEmailText').text.to.equal('');
+			this.expect.element('@contactSubmit').text.to.equal('Submit Another');
+			this.expect.element('@contactMessage').text.to.equal('Your email has been registered successfully, thank you.');
 		},
 		waitForPageLoad: function () {
 			this.waitForElementPresent('@fiveEssentials');
