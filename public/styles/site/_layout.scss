@@ -191,12 +191,15 @@
 .card {
   list-style-type: none;
   background-color: #f4f4f4;
-  box-shadow: 5px 5px 2px #aaaaaa;
   padding: 5px;
   margin-top: 15px;
   margin-bottom: 15px;
   color: #333333;
   border-radius: 5px;
+  box-shadow:
+		  inset 0 4px 6px rgba(255,255,255,0.5),
+		  inset 0 -4px 6px rgba(0,0,0,0.5),
+		  0 2px 2px rgba(255,255,255,0.9);
 }
 
 .card:hover {
@@ -214,7 +217,6 @@
 h1, h2, h3 {
   font-family: segoe;
 }
-
 
 .card:nth-of-type(3n+1) {
   background-color: #FFC338;
