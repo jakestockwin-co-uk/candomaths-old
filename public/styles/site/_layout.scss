@@ -216,44 +216,45 @@ h1, h2, h3 {
 }
 
 
-.card:nth-of-type(3n) {
-  background-color: #50AC5F;
-}
 .card:nth-of-type(3n+1) {
-  background-color: #43ADD7;
+  background-color: #FFC338;
 }
 .card:nth-of-type(3n+2) {
-  background-color: #FFC338;
-}
-
-.essential:nth-of-type(3n) .card {
   background-color: #50AC5F;
 }
-.essential:nth-of-type(3n+1) .card {
+.card:nth-of-type(3n) {
   background-color: #43ADD7;
+}
+
+.essential:nth-of-type(3n+1) .card {
+  background-color: #FFC338;
 }
 .essential:nth-of-type(3n+2) .card {
-  background-color: #FFC338;
-}
-
-a:nth-of-type(3n) > .card {
   background-color: #50AC5F;
 }
-a:nth-of-type(3n) > .card:hover {
-  background-color: #cae6cf;
-}
-a:nth-of-type(3n+1) > .card {
+.essential:nth-of-type(3n) .card {
   background-color: #43ADD7;
 }
-a:nth-of-type(3n+1) > .card:hover {
-  background-color: #c6e6f3;
-}
-a:nth-of-type(3n+2) > .card {
+
+a:nth-of-type(3n+1) > .card {
   background-color: #FFC338;
 }
-a:nth-of-type(3n+2) > .card:hover {
+a:nth-of-type(3n+1) > .card:hover {
   background-color: #fcecc3;
 }
+a:nth-of-type(3n+2) > .card {
+  background-color: #50AC5F;
+}
+a:nth-of-type(3n+2) > .card:hover {
+  background-color: #cae6cf;
+}
+a:nth-of-type(3n) > .card {
+  background-color: #43ADD7;
+}
+a:nth-of-type(3n) > .card:hover {
+  background-color: #c6e6f3;
+}
+
 
 .has-error {
   border-color: red;
