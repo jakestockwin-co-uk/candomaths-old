@@ -20,7 +20,7 @@ module.exports = {
 	'Useful links should display properly in the initial form': function (browser) {
 		browser.adminUIApp.openList({ section: 'Content', list: 'UsefulLinks' });
 		browser.adminUIApp.waitForListScreen();
-		browser.adminUIListScreen.createFirstItem();
+		browser.adminUIListScreen.clickCreateItemButton();
 		browser.adminUIApp.waitForInitialFormScreen();
 		browser.adminUIInitialForm.assertFieldUIVisible({
 			modelTestConfig: UsefulLinkModelTestConfig,
