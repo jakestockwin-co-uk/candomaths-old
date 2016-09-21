@@ -25,7 +25,12 @@ module.exports = {
 		browser.adminUIApp.navigate();
 		browser.adminUIApp.openList({ section: 'Emails', list: 'Email' });
 		browser.adminUIApp.waitForListScreen();
-		browser.adminUIListScreen.navigateToFirstItem();
+		browser.adminUIListScreen.clickItemFieldValue([{
+			row: 1,
+			column: 2,
+			name: 'name',
+			modelTestConfig: EmailModelTestConfig,
+		}]);
 		browser.adminUIApp.waitForItemScreen();
 		browser.adminUIItemScreen.assertFieldInputs({
 			modelTestConfig: EmailModelTestConfig,
