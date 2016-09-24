@@ -1,6 +1,7 @@
-@font-face {
-  font-family: segoe;
-  src: url('/fonts/segoePrint.ttf')
+@import 'https://fonts.googleapis.com/css?family=Chewy|Kalam';
+
+body {
+  font-family: 'Kalam', cursive;
 }
 
 #header {
@@ -164,7 +165,7 @@
   height: 150px;
   width: 150px;
   margin: 0;
-  font-family: segoe;
+  font-family: 'Chewy', cursive;;
 }
 
 .coreIdeaContent {
@@ -215,7 +216,7 @@
 }
 
 h1, h2, h3 {
-  font-family: segoe;
+  font-family: 'Chewy', cursive;;
 }
 
 .card:nth-of-type(3n+1) {
