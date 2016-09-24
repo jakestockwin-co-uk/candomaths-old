@@ -1,0 +1,59 @@
+.card:nth-of-type(3n+1) {
+  background-color: #FFC338;
+}
+.card:nth-of-type(3n+2) {
+  background-color: #50AC5F;
+}
+.card:nth-of-type(3n) {
+  background-color: #43ADD7;
+}
+
+.essential:nth-of-type(3n+1) .card {
+  background-color: #FFC338;
+}
+.essential:nth-of-type(3n+2) .card {
+  background-color: #50AC5F;
+}
+.essential:nth-of-type(3n) .card {
+  background-color: #43ADD7;
+}
+
+.essential:nth-of-type(3n+1) .essential-name {
+  color: #FFC338;
+}
+.essential:nth-of-type(3n+2) .essential-name {
+  color: #50AC5F;
+}
+.essential:nth-of-type(3n) .essential-name {
+  color: #43ADD7;
+}
+
+
+a:nth-of-type(3n+1) > .card {
+  background-color: #FFC338;
+}
+a:nth-of-type(3n+1) > .card:hover {
+  background-color: #fcecc3;
+}
+a:nth-of-type(3n+2) > .card {
+  background-color: #50AC5F;
+}
+a:nth-of-type(3n+2) > .card:hover {
+  background-color: #cae6cf;
+}
+a:nth-of-type(3n) > .card {
+  background-color: #43ADD7;
+}
+a:nth-of-type(3n) > .card:hover {
+  background-color: #c6e6f3;
+}
+
+.radialGradient:nth-of-type(1) {
+  background: radial-gradient(circle at 30px 30px, #cae6cf 0%, #50AC5F 40%, #102213 150%);
+}
+.radialGradient:nth-of-type(2) {
+  background: radial-gradient(circle at 30px 30px, #c6e6f3 0%, #43ADD7 40%, #0d222b 150%);
+}
+.radialGradient:nth-of-type(3) {
+  background: radial-gradient(circle at 30px 30px, #fcecc3 0%, #FFC338 40%, #31260a 150%);
+}

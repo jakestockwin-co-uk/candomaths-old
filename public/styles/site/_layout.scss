@@ -1,4 +1,7 @@
 @import 'https://fonts.googleapis.com/css?family=Chewy|Kalam';
+@import 'keyframes_colinAnimations';
+@import 'keyframes_fadeIn';
+@import 'cardColorings.scss';
 
 body {
   font-family: 'Kalam', cursive;
@@ -85,51 +88,6 @@ body {
   animation: fadein 2s forwards;
 }
 
-@keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* Firefox < 16 */
-@-moz-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* Internet Explorer */
-@-ms-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* Opera < 12.1 */
-@-o-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-.animation-delay .delay-1:nth-of-type(1) {
-  animation-delay: 0s;
-}
-.animation-delay .delay-1:nth-of-type(2) {
-  animation-delay: 1s;
-}
-.animation-delay .delay-1:nth-of-type(3) {
-  animation-delay: 2s;
-}
-.animation-delay .delay-1:nth-of-type(4) {
-  animation-delay: 3s;
-}
-.animation-delay .delay-1:nth-of-type(5) {
-  animation-delay: 4s;
-}
-
 #coreIdeasAnimation {
   min-height: 600px;
   max-width: 600px;
@@ -174,16 +132,6 @@ body {
   color: #FFF;
 }
 
-.radialGradient:nth-of-type(1) {
-  background: radial-gradient(circle at 30px 30px, #cae6cf 0%, #50AC5F 40%, #102213 150%);
-}
-.radialGradient:nth-of-type(2) {
-  background: radial-gradient(circle at 30px 30px, #c6e6f3 0%, #43ADD7 40%, #0d222b 150%);
-}
-.radialGradient:nth-of-type(3) {
-  background: radial-gradient(circle at 30px 30px, #fcecc3 0%, #FFC338 40%, #31260a 150%);
-}
-
 #twitter {
   max-height: 500px;
   overflow-y: scroll;
@@ -218,57 +166,6 @@ body {
 h1, h2, h3 {
   font-family: 'Chewy', cursive;;
 }
-
-.card:nth-of-type(3n+1) {
-  background-color: #FFC338;
-}
-.card:nth-of-type(3n+2) {
-  background-color: #50AC5F;
-}
-.card:nth-of-type(3n) {
-  background-color: #43ADD7;
-}
-
-.essential:nth-of-type(3n+1) .card {
-  background-color: #FFC338;
-}
-.essential:nth-of-type(3n+2) .card {
-  background-color: #50AC5F;
-}
-.essential:nth-of-type(3n) .card {
-  background-color: #43ADD7;
-}
-
-.essential:nth-of-type(3n+1) .essential-name {
-  color: #FFC338;
-}
-.essential:nth-of-type(3n+2) .essential-name {
-  color: #50AC5F;
-}
-.essential:nth-of-type(3n) .essential-name {
-  color: #43ADD7;
-}
-
-
-a:nth-of-type(3n+1) > .card {
-  background-color: #FFC338;
-}
-a:nth-of-type(3n+1) > .card:hover {
-  background-color: #fcecc3;
-}
-a:nth-of-type(3n+2) > .card {
-  background-color: #50AC5F;
-}
-a:nth-of-type(3n+2) > .card:hover {
-  background-color: #cae6cf;
-}
-a:nth-of-type(3n) > .card {
-  background-color: #43ADD7;
-}
-a:nth-of-type(3n) > .card:hover {
-  background-color: #c6e6f3;
-}
-
 
 .has-error {
   border-color: red;
@@ -341,181 +238,3 @@ a:nth-of-type(3n) > .card:hover {
   animation: colinImg-2 8s infinite;
 }
 
-@keyframes colinImg-1 {
-  0% { opacity: 1; }
-  50% { opacity: 1; }
-  55%   { opacity: 0; }
-  95% { opacity: 0; }
-  100% { opacity: 1; }
-}
-@keyframes colinImg-2 {
-  0% { opacity: 0; }
-  50% { opacity: 0; }
-  55%   { opacity: 1; }
-  95% { opacity: 1; }
-  100% { opacity: 0; }
-}
-@keyframes colinCards-1 {
-  0% { opacity: 0; }
-  20%   { opacity: 1; }
-  95% { opacity: 1; }
-  100% { opacity: 0; }
-}
-@keyframes colinCards-2 {
-  0% { opacity: 0; }
-  20% { opacity: 0; }
-  40%   { opacity: 1; }
-  95% { opacity: 1; }
-  100% { opacity: 0; }
-}
-@keyframes colinCards-3 {
-  0% { opacity: 0; }
-  40% { opacity: 0; }
-  60%   { opacity: 1; }
-  95% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-/* Firefox < 16 */
-@-moz-keyframes colinImg-1 {
-  0% { opacity: 1; }
-  50% { opacity: 1; }
-  55%   { opacity: 0; }
-  95% { opacity: 0; }
-  100% { opacity: 1; }
-}
-@-moz-keyframes colinImg-2 {
-  0% { opacity: 0; }
-  50% { opacity: 0; }
-  55%   { opacity: 1; }
-  95% { opacity: 1; }
-  100% { opacity: 0; }
-}
-@-moz-keyframes colinCards-1 {
-  0% { opacity: 0; }
-  20%   { opacity: 1; }
-  95% { opacity: 1; }
-  100% { opacity: 0; }
-}
-@-moz-keyframes colinCards-2 {
-  0% { opacity: 0; }
-  20% { opacity: 0; }
-  40%   { opacity: 1; }
-  95% { opacity: 1; }
-  100% { opacity: 0; }
-}
-@-moz-keyframes colinCards-3 {
-  0% { opacity: 0; }
-  40% { opacity: 0; }
-  60%   { opacity: 1; }
-  95% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes colinImg-1 {
-  0% { opacity: 1; }
-  50% { opacity: 1; }
-  55%   { opacity: 0; }
-  95% { opacity: 0; }
-  100% { opacity: 1; }
-}
-@-webkit-keyframes colinImg-2 {
-  0% { opacity: 0; }
-  50% { opacity: 0; }
-  55%   { opacity: 1; }
-  95% { opacity: 1; }
-  100% { opacity: 0; }
-}
-@-webkit-keyframes colinCards-1 {
-  0% { opacity: 0; }
-  20%   { opacity: 1; }
-  95% { opacity: 1; }
-  100% { opacity: 0; }
-}
-@-webkit-keyframes colinCards-2 {
-  0% { opacity: 0; }
-  20% { opacity: 0; }
-  40%   { opacity: 1; }
-  95% { opacity: 1; }
-  100% { opacity: 0; }
-}
-@-webkit-keyframes colinCards-3 {
-  0% { opacity: 0; }
-  40% { opacity: 0; }
-  60%   { opacity: 1; }
-  95% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-/* Internet Explorer */
-@-ms-keyframes colinImg-1 {
-  0% { opacity: 1; }
-  50% { opacity: 1; }
-  55%   { opacity: 0; }
-  95% { opacity: 0; }
-  100% { opacity: 1; }
-}
-@-ms-keyframes colinImg-2 {
-  0% { opacity: 0; }
-  50% { opacity: 0; }
-  55%   { opacity: 1; }
-  95% { opacity: 1; }
-  100% { opacity: 0; }
-}
-@-ms-keyframes colinCards-1 {
-  0% { opacity: 0; }
-  20%   { opacity: 1; }
-  95% { opacity: 1; }
-  100% { opacity: 0; }
-}
-@-ms-keyframes colinCards-2 {
-  0% { opacity: 0; }
-  20% { opacity: 0; }
-  40%   { opacity: 1; }
-  95% { opacity: 1; }
-  100% { opacity: 0; }
-}
-@-ms-keyframes colinCards-3 {
-  0% { opacity: 0; }
-  40% { opacity: 0; }
-  60%   { opacity: 1; }
-  95% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-/* Opera < 12.1 */
-@-o-keyframes colinImg-1 {
-  0% { opacity: 1; }
-  50% { opacity: 1; }
-  55%   { opacity: 0; }
-  95% { opacity: 0; }
-  100% { opacity: 1; }
-}
-@-o-keyframes colinImg-2 {
-  0% { opacity: 0; }
-  50% { opacity: 0; }
-  55%   { opacity: 1; }
-  95% { opacity: 1; }
-  100% { opacity: 0; }
-}
-@-o-keyframes colinCards-1 {
-  0% { opacity: 0; }
-  20%   { opacity: 1; }
-  95% { opacity: 1; }
-  100% { opacity: 0; }
-}
-@-o-keyframes colinCards-2 {
-  0% { opacity: 0; }
-  20% { opacity: 0; }
-  40%   { opacity: 1; }
-  95% { opacity: 1; }
-  100% { opacity: 0; }
-}
-@-o-keyframes colinCards-3 {
-  0% { opacity: 0; }
-  40% { opacity: 0; }
-  60%   { opacity: 1; }
-  95% { opacity: 1; }
-  100% { opacity: 0; }
-}

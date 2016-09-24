@@ -1,0 +1,178 @@
+@keyframes colinImg-1 {
+  0% { opacity: 1; }
+  50% { opacity: 1; }
+  55%   { opacity: 0; }
+  95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes colinImg-2 {
+  0% { opacity: 0; }
+  50% { opacity: 0; }
+  55%   { opacity: 1; }
+  95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes colinCards-1 {
+  0% { opacity: 0; }
+  20%   { opacity: 1; }
+  95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes colinCards-2 {
+  0% { opacity: 0; }
+  20% { opacity: 0; }
+  40%   { opacity: 1; }
+  95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes colinCards-3 {
+  0% { opacity: 0; }
+  40% { opacity: 0; }
+  60%   { opacity: 1; }
+  95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes colinImg-1 {
+  0% { opacity: 1; }
+  50% { opacity: 1; }
+  55%   { opacity: 0; }
+  95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes colinImg-2 {
+  0% { opacity: 0; }
+  50% { opacity: 0; }
+  55%   { opacity: 1; }
+  95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@-moz-keyframes colinCards-1 {
+  0% { opacity: 0; }
+  20%   { opacity: 1; }
+  95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@-moz-keyframes colinCards-2 {
+  0% { opacity: 0; }
+  20% { opacity: 0; }
+  40%   { opacity: 1; }
+  95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@-moz-keyframes colinCards-3 {
+  0% { opacity: 0; }
+  40% { opacity: 0; }
+  60%   { opacity: 1; }
+  95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes colinImg-1 {
+  0% { opacity: 1; }
+  50% { opacity: 1; }
+  55%   { opacity: 0; }
+  95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-webkit-keyframes colinImg-2 {
+  0% { opacity: 0; }
+  50% { opacity: 0; }
+  55%   { opacity: 1; }
+  95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@-webkit-keyframes colinCards-1 {
+  0% { opacity: 0; }
+  20%   { opacity: 1; }
+  95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@-webkit-keyframes colinCards-2 {
+  0% { opacity: 0; }
+  20% { opacity: 0; }
+  40%   { opacity: 1; }
+  95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@-webkit-keyframes colinCards-3 {
+  0% { opacity: 0; }
+  40% { opacity: 0; }
+  60%   { opacity: 1; }
+  95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes colinImg-1 {
+  0% { opacity: 1; }
+  50% { opacity: 1; }
+  55%   { opacity: 0; }
+  95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-ms-keyframes colinImg-2 {
+  0% { opacity: 0; }
+  50% { opacity: 0; }
+  55%   { opacity: 1; }
+  95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@-ms-keyframes colinCards-1 {
+  0% { opacity: 0; }
+  20%   { opacity: 1; }
+  95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@-ms-keyframes colinCards-2 {
+  0% { opacity: 0; }
+  20% { opacity: 0; }
+  40%   { opacity: 1; }
+  95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@-ms-keyframes colinCards-3 {
+  0% { opacity: 0; }
+  40% { opacity: 0; }
+  60%   { opacity: 1; }
+  95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes colinImg-1 {
+  0% { opacity: 1; }
+  50% { opacity: 1; }
+  55%   { opacity: 0; }
+  95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes colinImg-2 {
+  0% { opacity: 0; }
+  50% { opacity: 0; }
+  55%   { opacity: 1; }
+  95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@-o-keyframes colinCards-1 {
+  0% { opacity: 0; }
+  20%   { opacity: 1; }
+  95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@-o-keyframes colinCards-2 {
+  0% { opacity: 0; }
+  20% { opacity: 0; }
+  40%   { opacity: 1; }
+  95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@-o-keyframes colinCards-3 {
+  0% { opacity: 0; }
+  40% { opacity: 0; }
+  60%   { opacity: 1; }
+  95% { opacity: 1; }
+  100% { opacity: 0; }
+}
