@@ -1,7 +1,7 @@
 mixin resources(resource)
 	if resource
 		a(href=resource.link target="_blank").cardLink
-			li.card
+			li.card.linkCard
 				h4.linkTitle!=resource.name
 				if resource.description
 					.linkDescription
@@ -10,7 +10,7 @@ mixin resources(resource)
 mixin usefulLinks(link)
 	if link
 		a(href=link.link target="_blank").cardLink
-			li.card
+			li.card.linkCard
 				h4.linkTitle!=link.name
 				if link.description
 					.linkDescription
