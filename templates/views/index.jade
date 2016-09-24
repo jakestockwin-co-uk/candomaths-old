@@ -2,27 +2,32 @@ extends ../layouts/default
 
 block content
 	.container
-		h1 CanDoMaths
-		.section#about
-			include ../partials/about
-			
 		.row
-			.section#coreIdeas
-				include ../partials/coreIdeas
+			.col-md-6
+				h1 CanDoMaths
+					.section#about
+						include ../partials/about
+			.col-md-6
+				.section#coreIdeas
+					include ../partials/coreIdeas
 			
 		.row
 			.col-md-6
-				.section.animation-delay#fiveEssentials
+				.section.animation-delay.hidden-sm#fiveEssentials
 					include ../partials/fiveEssentials
 			.col-md-6
-				.section#contact
-					include ../partials/contact
-					img.hidden-sm.img-responsive.center(src='/images/CanDoLogo.png')
-			
+				.section#coreIdeasDescription
+					include ../partials/coreIdeasDescriptions
+			.col-md-6
+				.section.animation-delay.visible-sm#fiveEssentials
+					include ../partials/fiveEssentials
+						
 		.row
 			.col-md-6
 				.section#resources
 					include ../partials/resources
 			.col-md-6
+				.section#contact
+					include ../partials/contact
 				.section#twitter
 					include ../partials/twitter
