@@ -5,7 +5,7 @@ var startSpeed = 1;
 var endSpeed = 10;
 var startSpeedChangeTime = 0.25;
 var endSpeedChangeTime = 0.6;
-var startRadius = 150;
+var startRadius = Math.min(150, $(document).width()/2 - 100);
 var endRaduis = 60;
 var startRaduisChangeTime = 0.5;
 var endRaduisChangeTime = 0.6;
@@ -24,7 +24,7 @@ endRaduisChangeTime *= animationDuration;
 triggerCanDoMathsTime *= animationDuration;
 triggerStopMovingTime *= animationDuration;
 const midSpeed = endSpeed/2;
-const speedDecayCoefficient = 1.02
+const speedDecayCoefficient = 1.02;
 
 var r = startRadius;
 var speed = startSpeed;
