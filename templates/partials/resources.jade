@@ -1,14 +1,6 @@
 include ../mixins/links
 
-h1 'Can Do Maths' Resources and Links
-
-	h2 'Can Do Maths' Resources
-	ul
-		each resource in resources
-			+resources(resource)
-
-				
-	h2 Useful Links
-	ul
-		each link in usefulLinks
-			+usefulLinks(link)
+h2 'Can Do Maths' Resources
+ul
+	each resource in resources
+		+resources(resource)

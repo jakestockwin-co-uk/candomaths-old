@@ -5,7 +5,7 @@ var port = process.env.PORT || '3000';
 module.exports = {
 	url: 'http://' + host + ':' + port,
 	elements: {
-		fiveEssentials: '#fiveEssentialsLarge',
+		fiveEssentials: '#fiveEssentials',
 		coreIdeas: '#coreIdeas',
 		resources: '#resources',
 		contact: '#contact',
