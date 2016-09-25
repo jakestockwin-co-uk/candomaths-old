@@ -17,6 +17,15 @@
   }
 }
 
+a:nth-of-type(3n+1) > .linkCard .cardTitle {
+  background-color: #FFC338;
+}
+a:nth-of-type(3n+2) > .linkCard .cardTitle {
+  background-color: #50AC5F;
+}
+a:nth-of-type(3n) > .linkCard .cardTitle {
+  background-color: #43ADD7;
+}
 a:nth-of-type(3n+1) > .linkCard:hover .cardTitle {
   background-color: #fcecc3;
 }
