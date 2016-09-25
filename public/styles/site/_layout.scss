@@ -174,16 +174,13 @@ ul {
   
   .cardTitle {
 	padding: 5px;
-	height: 40px;
 	width: 100%;
-	position: absolute;
 	h2, h4 {
 	  margin: 0;
 	}
   }
 
   .cardDescription {
-	margin-top: 40px;
 	padding: 5px;
   }
   
@@ -191,7 +188,7 @@ ul {
 
 .colinCards {
   .card {
-	height: 45px;
+	height: 40px;
   }
 }
 
@@ -199,10 +196,6 @@ ul {
   color: #333333;
   .cardTitle {
 	height: 29px;
-  }
-
-  .cardDescription {
-	margin-top: 29px;
   }
 }
 
