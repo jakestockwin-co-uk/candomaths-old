@@ -52,7 +52,11 @@ html
 							li: a.page-scroll(href='#coreIdeas') Core Ideas
 							li: a.page-scroll(href='#linksAndResources') Links and Resources
 							li: a.page-scroll(href='#contact') Contact Us
-
+						ul.nav.navbar-nav.navbar-right
+							if user
+								if user.canAccessKeystone
+									li: a(href='/keystone') Open Admin Console
+									li: a(href='/keystone/signout') Sign Out
 		//- BODY
 		#body
 
