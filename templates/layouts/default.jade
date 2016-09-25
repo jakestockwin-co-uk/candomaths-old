@@ -33,7 +33,25 @@ html
 		block head
 
 	//- HTML BODY
-	body
+	body#page-top(data-spy="scroll", data-target=".navbar-fixed-top")
+		
+		//- HEADER
+		#header: .container
+			div(role="navigation").navbar.navbar-default.navbar-fixed-top
+				.container
+					.navbar-header
+						button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+							span.sr-only Toggle navigation
+							span.icon-bar
+							span.icon-bar
+							span.icon-bar
+						a.navbar-brand(href='/') CanDoMaths
+					.collapse.navbar-collapse
+						ul.nav.navbar-nav.navbar-left
+							li: a.page-scroll(href='#about') About
+							li: a.page-scroll(href='#coreIdeas') Core Ideas
+							li: a.page-scroll(href='#resources') Links and Resources
+							li: a.page-scroll(href='#contact') Contact Us
 
 		//- BODY
 		#body
@@ -74,6 +92,8 @@ html
 		//- Customise which Bootstrap javascript files are served by including
 		//- them specifically here, instead of bootstrap-3.3.5.min.js
 		script(src='/js/bootstrap/bootstrap-3.3.5.min.js')
+		script(src='/js/jquery.easing.min.js')
+		script(src='/js/scrolling-nav.js')
 
 		//- The KeystoneJS Content Editor provides support for ks-editable data attributes,
 		//- which generate links to edit content for users who can access Keystone

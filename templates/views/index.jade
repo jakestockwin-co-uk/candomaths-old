@@ -2,9 +2,8 @@ extends ../layouts/default
 
 block content
 	.container
-		.row
-			h1.text-center CanDoMaths
-		.row#about
+		h1.text-center#title CanDoMaths
+		.row.padded#about
 			.col-md-6
 				.section#about
 					include ../partials/about
@@ -13,7 +12,8 @@ block content
 					include ../partials/fiveEssentials
 		
 			
-		.row#coreIdeas
+		.row.padded#coreIdeas
+			h1.text-center 'Can Do Maths' Core Ideas
 			.col-md-6
 				.section#spinningBalls
 					include ../partials/coreIdeas
@@ -21,15 +21,16 @@ block content
 				.section#coreIdeasDescription
 					include ../partials/coreIdeasDescriptions
 						
-		.row#resources
+		.row.padded#resources
 			h1.text-center 'Can Do Maths' Resources and Links
 			.col-md-6
-				.section#resources
+				.section#resourcesSection
 					include ../partials/resources
 			.col-md-6
 				.section#links
 					include ../partials/links
-		.row#contact
+		.row.padded#contact
+			h1.text-center 'Can Do Maths' Contact Information
 			.col-md-6
 				.section#contact
 					include ../partials/contact
