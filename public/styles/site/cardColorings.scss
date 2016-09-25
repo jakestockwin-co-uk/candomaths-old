@@ -8,16 +8,6 @@
   background-color: #43ADD7;
 }
 
-.essential:nth-of-type(3n+1) .card {
-  background-color: #FFC338;
-}
-.essential:nth-of-type(3n+2) .card {
-  background-color: #50AC5F;
-}
-.essential:nth-of-type(3n) .card {
-  background-color: #43ADD7;
-}
-
 .essential:nth-of-type(3n+1) .essential-name {
   color: #FFC338;
 }
@@ -26,6 +16,26 @@
 }
 .essential:nth-of-type(3n) .essential-name {
   color: #43ADD7;
+}
+
+.essential:nth-of-type(3n+1) .essential-letter{
+  background-color: #FFC338;
+}
+.essential:nth-of-type(3n+2) .essential-letter {
+  background-color: #50AC5F;
+}
+.essential:nth-of-type(3n) .essential-letter {
+  background-color: #43ADD7;
+}
+
+.essential:nth-of-type(3n+1) {
+  border-color: #FFC338;
+}
+.essential:nth-of-type(3n+2) {
+  border-color: #50AC5F;
+}
+.essential:nth-of-type(3n) {
+  border-color: #43ADD7;
 }
 
 
