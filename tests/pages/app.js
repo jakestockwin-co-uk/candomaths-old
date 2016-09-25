@@ -85,22 +85,22 @@ module.exports = {
 };
 
 function getNthUsefulLinkLinkSelector (n) {
-	return '#resources > ul:nth-of-type(2) > .cardLink:nth-of-type(' + n + ')';
+	return '#links > ul > .cardLink:nth-of-type(' + n + ')';
 }
 function getNthUsefulLinkTitleSelector (n) {
-	return '#resources > ul:nth-of-type(2) > .cardLink:nth-of-type(' + n + ') .linkTitle';
+	return '#links > ul > .cardLink:nth-of-type(' + n + ') .linkTitle';
 }
 function getNthUsefulLinkDescriptionSelector (n) {
-	return '#resources > ul:nth-of-type(2) > .cardLink:nth-of-type(' + n + ') .linkDescription';
+	return '#links > ul > .cardLink:nth-of-type(' + n + ') .linkDescription';
 }
 
 
 function getNthResourceLinkSelector (n) {
-	return '#resources > ul:nth-of-type(1) > .cardLink:nth-of-type(' + n + ')';
+	return '#resources > ul > .cardLink:nth-of-type(' + n + ')';
 }
 function getNthResourceTitleSelector (n) {
-	return '#resources > ul:nth-of-type(1) > .cardLink:nth-of-type(' + n + ') .linkTitle';
+	return '#resources > ul > .cardLink:nth-of-type(' + n + ') .linkTitle';
 }
 function getNthResourceDescriptionSelector (n) {
-	return '#resources > ul:nth-of-type(1) > .cardLink:nth-of-type(' + n + ') .linkDescription';
+	return '#resources > ul > .cardLink:nth-of-type(' + n + ') .linkDescription';
 }
