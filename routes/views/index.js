@@ -11,7 +11,7 @@ exports = module.exports = function (req, res) {
 
 	view.on('init', function (next) {
 		// Find resources
-		keystone.list('Resource').model.find().sort('displayOrder').exec(function (err, results) {
+		keystone.list('Resource').model.find().sort('sortOrder').exec(function (err, results) {
 			if (err) {
 				next(err);
 			} else {
@@ -20,7 +20,7 @@ exports = module.exports = function (req, res) {
 			}
 		}).then(function () {
 			// Then find useful links
-			keystone.list('UsefulLink').model.find().sort('displayOrder').exec(function (err, results) {
+			keystone.list('UsefulLink').model.find().sort('sortOrder').exec(function (err, results) {
 				if (err) {
 					next(err);
 				} else {
