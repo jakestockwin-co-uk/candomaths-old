@@ -1,6 +1,7 @@
 var UsefulLinkModelTestConfig = require('../modelTestConfig/usefulLinkModelTestConfig');
 
 module.exports = {
+	'@disabled': true, // Disabled until tests can support wysiwyg fields.
 	'before': function (browser) {
 		browser.adminUIApp = browser.page.adminUIApp();
 		browser.adminUISignin = browser.page.adminUISignin();

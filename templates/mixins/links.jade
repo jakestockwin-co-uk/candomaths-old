@@ -1,12 +1,10 @@
 mixin resources(resource)
 	if resource
-		a(href=resource.link target="_blank").cardLink
-			li.card.linkCard
-				.cardTitle
-					h4.linkTitle!=resource.name
-				if resource.description
-					.linkDescription.cardDescription
-						p!=resource.description
+		li.card
+			.cardTitle
+				h4!=resource.name
+			if resource.description
+				.cardDescription!=resource.description
 
 mixin usefulLinks(link)
 	if link

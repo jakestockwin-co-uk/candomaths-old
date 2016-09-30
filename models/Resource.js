@@ -7,8 +7,7 @@ var Resource = new keystone.List('Resource', {
 
 Resource.add({
 	name: { type: Types.Text, required: true, index: true },
-	link: { type: Types.Url, initial: true, required: true, index: true },
-	description: { type: Types.Html, initial: true },
+	description: { type: Types.Html, wysiwyg: true, initial: true },
 });
 
 Resource.defaultColumns = 'name';

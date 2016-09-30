@@ -72,7 +72,7 @@ function configureKeystone () {
 
 	keystone.set('nav', {
 		users: 'users',
-		content: ['resources', 'useful-links'],
+		content: ['resources', 'useful-links', 'files'],
 		emails: 'emails',
 	});
 

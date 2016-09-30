@@ -8,7 +8,7 @@ var UsefulLink = new keystone.List('UsefulLink', {
 UsefulLink.add({
 	name: { type: Types.Text, required: true, index: true },
 	link: { type: Types.Url, initial: true, required: true, index: true },
-	description: { type: Types.Html, initial: true },
+	description: { type: Types.Html, wysiwyg: true, initial: true },
 });
 
 UsefulLink.defaultColumns = 'name';
