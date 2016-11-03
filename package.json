@@ -18,7 +18,7 @@
     "eslint": "^3.3.1",
     "eslint-config-keystone": "^2.3.1",
     "eslint-plugin-react": "^6.1.2",
-    "keystone-nightwatch-e2e": "^0.1.7"
+    "keystone-nightwatch-e2e": "^0.1.15"
   },
   "engines": {
     "node": ">=0.10.22",
