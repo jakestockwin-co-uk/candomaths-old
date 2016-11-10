@@ -12,8 +12,8 @@ module.exports = {
 
 		browser.adminUIApp.navigate();
 		browser.adminUIApp.waitForSigninScreen();
-		browser.adminUISignin.signin('user@keystonejs.com', 'admin');
-		browser.adminUIApp.waitForHomeScreen(60000); // Long timeout for first time adminUI loads.
+		browser.adminUISignin.signin({ user: 'user@keystonejs.com', password: 'admin', wait: false });
+		browser.adminUIApp.waitForHomeScreen({ timeout: 60000 }); // Long timeout for first time adminUI loads.
 	},
 	'after': function (browser) {
 		browser.end();

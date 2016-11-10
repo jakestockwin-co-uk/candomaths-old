@@ -10,8 +10,11 @@ module.exports = {
 
 		browser.adminUIApp.navigate();
 		browser.adminUIApp.waitForSigninScreen();
-		browser.adminUISignin.signin('user@keystonejs.com', 'admin');
-		browser.adminUIApp.waitForHomeScreen(60000); // Long timeout for first time adminUI loads.
+		browser.adminUISignin.signin({ user: 'user@keystonejs.com', password: 'admin', wait: false });
+		browser.adminUIApp.waitForHomeScreen({ timeout: 60000 }); // Long timeout for first time adminUI loads.
+
+		browser.adminUIListScreen.setDefaultModelTestConfig(EmailModelTestConfig);
+		browser.adminUIItemScreen.setDefaultModelTestConfig(EmailModelTestConfig);
 	},
 	'after': function (browser) {
 		browser.end();
@@ -23,21 +26,24 @@ module.exports = {
 	},
 	'Name and email should now appear in the admin UI': function (browser) {
 		browser.adminUIApp.navigate();
-		browser.adminUIApp.openList({ section: 'Emails', list: 'Email' });
+		browser.adminUIApp.openList({ section: 'emails', list: 'Email' });
 		browser.adminUIApp.waitForListScreen();
-		browser.adminUIListScreen.clickItemFieldValue([{
-			row: 1,
-			column: 2,
-			name: 'name',
-			modelTestConfig: EmailModelTestConfig,
-		}]);
+		browser.adminUIListScreen.clickItemFieldValue({
+			fields: [{
+				row: 1,
+				column: 2,
+				name: 'name',
+			}],
+		});
 		browser.adminUIApp.waitForItemScreen();
 		browser.adminUIItemScreen.assertFieldInputs({
-			modelTestConfig: EmailModelTestConfig,
-			fields: {
-				name: { value: 'Test Name' },
-				email: { value: 'test@example.com' },
-			},
+			fields: [{
+				name: 'name',
+				input: { value: 'Test Name' },
+			}, {
+				name: 'email',
+				input: { value: 'test@example.com' },
+			}],
 		});
 	},
 };
