@@ -39,6 +39,7 @@ function configureKeystone () {
 		'view engine': 'jade',
 
 		'mongo': mongoUri,
+		'mongo options': { server: { keepAlive: 1 } },
 
 		'auto update': true,
 		'session': true,
