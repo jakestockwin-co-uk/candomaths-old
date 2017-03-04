@@ -14,6 +14,10 @@ module.exports = {
 		browser.adminUIApp.waitForSigninScreen();
 		browser.adminUISignin.signin({ user: 'user@keystonejs.com', password: 'admin', wait: false });
 		browser.adminUIApp.waitForHomeScreen({ timeout: 60000 }); // Long timeout for first time adminUI loads.
+
+		browser.adminUIInitialForm.setDefaultModelTestConfig(ResourceModelTestConfig);
+		browser.adminUIItemScreen.setDefaultModelTestConfig(ResourceModelTestConfig);
+		browser.adminUIListScreen.setDefaultModelTestConfig(ResourceModelTestConfig);
 	},
 	'after': function (browser) {
 		browser.end();
@@ -32,22 +36,20 @@ module.exports = {
 	'User should be able to add a resource': function (browser) {
 		// Fill test inputs
 		browser.adminUIInitialForm.fillFieldInputs({
-			modelTestConfig: ResourceModelTestConfig,
-			fields: {
-				name: { value: 'Test link 1' },
-				link: { value: 'http://www.example.com/' },
-				description: { value: 'Test description 1' },
-			},
+			fields: [
+				{ name: 'name', input: { value: 'Test link 1' } },
+				{ name: 'link', input: { value: 'http://www.example.com/' } },
+				{ name: 'description', input: { value: 'Test description 1' } },
+			],
 		});
 
 		// Check test inputs in intial form
 		browser.adminUIInitialForm.assertFieldInputs({
-			modelTestConfig: ResourceModelTestConfig,
-			fields: {
-				name: { value: 'Test link 1' },
-				link: { value: 'http://www.example.com/' },
-				description: { value: 'Test description 1' },
-			},
+			fields: [
+				{ name: 'name', input: { value: 'Test link 1' } },
+				{ name: 'link', input: { value: 'http://www.example.com/' } },
+				{ name: 'description', input: { value: 'Test description 1' } },
+			],
 		});
 
 		// Save inputs
@@ -56,12 +58,11 @@ module.exports = {
 
 		// Check test inputs in intial form
 		browser.adminUIItemScreen.assertFieldInputs({
-			modelTestConfig: ResourceModelTestConfig,
-			fields: {
-				name: { value: 'Test link 1' },
-				link: { value: 'http://www.example.com/' },
-				description: { value: 'Test description 1' },
-			},
+			fields: [
+				{ name: 'name', input: { value: 'Test link 1' } },
+				{ name: 'link', input: { value: 'http://www.example.com/' } },
+				{ name: 'description', input: { value: 'Test description 1' } },
+			],
 		});
 	},
 

@@ -14,6 +14,10 @@ module.exports = {
 		browser.adminUIApp.waitForSigninScreen();
 		browser.adminUISignin.signin({ user: 'user@keystonejs.com', password: 'admin', wait: false });
 		browser.adminUIApp.waitForHomeScreen({ timeout: 60000 }); // Long timeout for first time adminUI loads.
+
+		browser.adminUIInitialForm.setDefaultModelTestConfig(UsefulLinkModelTestConfig);
+		browser.adminUIItemScreen.setDefaultModelTestConfig(UsefulLinkModelTestConfig);
+		browser.adminUIListScreen.setDefaultModelTestConfig(UsefulLinkModelTestConfig);
 	},
 	'after': function (browser) {
 		browser.end();
@@ -24,7 +28,6 @@ module.exports = {
 		browser.adminUIListScreen.clickCreateItemButton();
 		browser.adminUIApp.waitForInitialFormScreen();
 		browser.adminUIInitialForm.assertFieldUIVisible({
-			modelTestConfig: UsefulLinkModelTestConfig,
 			// Name excluded from below as assertFieldUIVisible can't cope with not having a label yet...
 			fields: [{ name: 'link' }, { name: 'description' }],
 		});
@@ -32,22 +35,20 @@ module.exports = {
 	'User should be able to add a useful link': function (browser) {
 		// Fill test inputs
 		browser.adminUIInitialForm.fillFieldInputs({
-			modelTestConfig: UsefulLinkModelTestConfig,
-			fields: {
-				name: { value: 'Test link 1' },
-				link: { value: 'http://www.example.com/' },
-				description: { value: 'Test description 1' },
-			},
+			fields: [
+				{ name: 'name', input: { value: 'Test link 1' } },
+				{ name: 'link', input: { value: 'http://www.example.com/' } },
+				{ name: 'description', input: { value: 'Test description 1' } },
+			],
 		});
 
 		// Check test inputs in intial form
 		browser.adminUIInitialForm.assertFieldInputs({
-			modelTestConfig: UsefulLinkModelTestConfig,
-			fields: {
-				name: { value: 'Test link 1' },
-				link: { value: 'http://www.example.com/' },
-				description: { value: 'Test description 1' },
-			},
+			fields: [
+				{ name: 'name', input: { value: 'Test link 1' } },
+				{ name: 'link', input: { value: 'http://www.example.com/' } },
+				{ name: 'description', input: { value: 'Test description 1' } },
+			],
 		});
 
 		// Save inputs
@@ -56,12 +57,11 @@ module.exports = {
 
 		// Check test inputs in intial form
 		browser.adminUIItemScreen.assertFieldInputs({
-			modelTestConfig: UsefulLinkModelTestConfig,
-			fields: {
-				name: { value: 'Test link 1' },
-				link: { value: 'http://www.example.com/' },
-				description: { value: 'Test description 1' },
-			},
+			fields: [
+				{ name: 'name', input: { value: 'Test link 1' } },
+				{ name: 'link', input: { value: 'http://www.example.com/' } },
+				{ name: 'description', input: { value: 'Test description 1' } },
+			],
 		});
 	},
 
