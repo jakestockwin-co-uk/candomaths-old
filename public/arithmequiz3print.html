@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>CanDoMaths Arithmetic Paper</title>
+        <meta name="description" content="An interactive maths page.">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <style>
+            @import 'https://fonts.googleapis.com/css?family=Chewy|Kalam';
+            @media all {
+                .page-break	{ display: none; }
+            }
+
+            @media print {
+                .page-break	{ display: block; page-break-before: always; }
+            }
+            
+            html{
+                font-family:sans-serif;
+            }
+            body{
+                width: 800px;
+                margin:0 auto;
+                font-family: 'Chewy', cursive;
+            }
+            h1, h2, h3 {
+                font-family: 'Chewy', cursive;
+                margin: auto;
+                text-align: center;
+/*                display: inline;*/
+            }
+            div{
+                display: inline;
+            }
+            h1{
+                vertical-align:middle
+                height:100%;
+                font-size: 40px;
+            }
+            h2{
+                font-size: 40px;
+            }
+            select{
+                font-size: 24px;
+                border-radius: 8px;
+            }
+            option{
+                font-size: 24px;
+                font-family: 'Chewy', cursive;
+            }
+            optgroup{
+                font-size: 24px;
+            }
+            p{
+                font-size: 16pt;
+                font-family: sans-serif;
+            }
+            button{
+                font-size: 24px;
+                font-family: 'Chewy', cursive;
+            }
+            .card {
+                list-style-type: none;
+                margin-top: 15px;
+                margin-bottom: 15px;
+                border-radius: 5px;
+                border-style: solid;
+                position: relative;
+            }
+            span.frac {
+                display: inline-block;
+                font-size: 50%;
+                text-align: center;
+            }
+                span.frac > sup {
+                display: block;
+                border-bottom: 1px solid;
+                font: inherit;
+            }
+                span.frac > span {
+                display: none;
+            }
+                span.frac > sub {
+                display: block;
+                font: inherit;
+            }
+            a{
+                text-decoration: none;
+            }
+            table{
+                width: 100%;
+                height:100px;
+            }
+            img{
+/*                height: 100px;*/
+                page-break-inside: avoid;
+            }
+            .content{
+                width: 100%;
+                margin: 0 auto;
+                align-content: center;
+            }
+            .questionBox{
+/*                border: 1px solid black;*/
+                display: block;
+                padding: 1px 0px 0px 12px;
+                background-image: url(qbox.png);
+                width: 490px;
+                height: 211px;
+            }
+            #cover{
+                width: 720px;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            
+            <tr>
+                <td></td>
+                <td>
+                    <img id="cover" src="cover3.png">
+                    <div class="page-break"></div>
+                    <div id="questionSection"></div>
+                </td>
+            </tr>
+        </table>
+        <script>
+            var t1,t2,t3,a;
+            var choice =1;
+            var answers = '</br>Answers:</br></br>'
+            $(document).ready(function(){
+                for(var i = 1; i<37; i++){
+                    choice = i;
+                    addTab(choice , next());
+                    answers += choice + ') ' + a + '</br>'
+                }
+                $('#questionSection').append('<p>'+answers+'</p>');
+                window.print();
+                function addTab(questionNumber, questionText){
+                    $('#questionSection').append('<div style="position: relative;"><img src="qbox.png" style="width: 500px; height: 211px;"><div style="position: absolute; top: -205px; left: 12px;"><p>'+ questionNumber + ')&nbsp&nbsp&nbsp&nbsp'+ questionText + '</p></div></div>');
+                    if(choice%4==0){
+                        $('#questionSection').append('<div class="page-break"></div>');
+                    }
+                }
+                function next(){
+                    $('#answer').text('');
+                    switch(choice){
+                        case 1:
+                            t1 = (parseInt(Math.random()*9)+1)*10;
+                            t2 = (parseInt(Math.random()*9)+1)*1000;
+                            a = t1+t2;
+                            return t1+' + '+t2+' = <span id="answer"></span>';
+                            break;
+                        case 2:
+                            t1=parseInt(Math.random()*900)+100;
+                            t2=parseInt(Math.random()*3000)+1000;
+                            a = t1+t2;
+                            return t1+' + '+t2+' = <span id="answer"></span>';
+                            break;
+                        case 3:
+                            t1 = parseInt(Math.random()*6)+4;
+                            t2 = parseInt(Math.random()*4)+6;
+                            t3 = parseInt(Math.random()*7)+3;
+                            a = t1 + t3;
+                            a = '<span class="frac"><sup>'+a+'</sup><span>/</span><sub>'+t2+'</sub></span>';
+                            return '<span class="frac"><sup>'+t1+'</sup><span>/</span><sub>'+t2+'</sub></span> + <span class="frac"><sup>'+t3+'</sup><span>/</span><sub>'+t2+'</sub></span> = <span id="answer"></span>';
+                            break;
+                        case 4:
+                            t1 = parseInt(Math.random()*900)+100;
+                            t2 = 1;
+                            a = t1/t2;
+                            return t1+' \u00F7 '+t2+' = <span id="answer"></span>';
+                            break;
+                        case 5:
+                            t1 = parseInt(Math.random()*900)+100;
+                            t2 = (parseInt(Math.random()*9)+1)*10;
+                            a=t1-t2;
+                            return t1+' - '+t2+' = <span id="answer"></span>';
+                            break;
+                        case 6:
+                            t1 = (parseInt(Math.random()*4)+1)*10;
+                            t1+= parseInt(Math.random()*9)+1;
+                            t2 = (parseInt(Math.random()*4)+1)*1000;
+                            t2+= (parseInt(Math.random()*9)+1)*100;
+                            t2+= (parseInt(Math.random()*9)+1)*10;
+                            t2+= parseInt(Math.random()*9)+1;
+                            a = t1/10 + t2/1000;
+                            a = a.toFixed(3);
+                            return (t1-t1%10)/10+'.'+t1%10+' + '+(t2-t2%1000)/1000+'.'+t2%1000+' = <span id="answer"></span>';
+                            break;
+                        case 7:
+                            t1 = (parseInt(Math.random()*90)+10)*100;
+                            t2 = (parseInt(Math.random()*9)+1)*100;
+                            a = t1+t2;
+                            return t1+' + '+t2+' = <span id="answer"></span>';
+                            break;
+                        case 8:
+                            t1 = parseInt(Math.random()*4)+6;
+                            t2 = (parseInt(Math.random()*5)+3)*10;
+                            t2+= parseInt(Math.random()*9)+1;
+                            a = t1*t2;
+                            return t1+' \u00D7 '+t2+' = <span id="answer"></span>';
+                            break;
+                        case 9:
+                            t1 = parseInt(Math.random()*8)+5;
+                            t2 = parseInt(Math.random()*8)+2;
+                            t1*=t2
+                            a = t1/t2;
+                            return t1+' \u00F7 '+t2+' = <span id="answer"></span>';
+                            break;
+                        case 10:
+                            t1 = (parseInt(Math.random()*9)+1)*100;
+                            t1+= (parseInt(Math.random()*9)+1)*10;
+                            t1+= parseInt(Math.random()*9)+1;
+                            t2 = parseInt(Math.random()*5)+2;
+                            a = t1*t2;
+                            return t1+' \u00D7 '+t2+' = <span id="answer"></span>';
+                            break;
+                        case 11:
+                            t1 = parseInt(Math.random()*9000)+1000;
+                            t2 = parseInt(Math.random()*900)+100;
+                            a = t1-t2;
+                            return t1+' - '+t2+' = <span id="answer"></span>';
+                            break;
+                        case 12:
+                            t1 = parseInt(Math.random()*50)+50;
+                            t2 = 100;
+                            t3 = parseInt(Math.random()*40)+10;
+                            a = t1 - t3;
+                            a = '<span class="frac"><sup>'+a+'</sup><span>/</span><sub>'+t2+'</sub></span>';
+                            return '<span class="frac"><sup>'+t1+'</sup><span>/</span><sub>'+t2+'</sub></span> - <span class="frac"><sup>'+t3+'</sup><span>/</span><sub>'+t2+'</sub></span> = <span id="answer"></span>';
+                            break;
+                        case 13:
+                            t1 = 100;
+                            t2 = parseInt(Math.random()*9000)+1000;
+                            a=t1+t2;
+                            return '<span id="answer">?</span> - '+t1+' = '+t2;
+                            break;
+                        case 14:
+                            t1 = (parseInt(Math.random()*9)+1)*10;
+                            t3 = parseInt(Math.random()*8)+2;
+                            t2 = parseInt(Math.random()*11)+2;
+                            t2*= t3;
+                            a = t1+t2/t3;
+                            return t1+' + ('+t2+' \u00F7 '+t3+') = <span id="answer"></span>';
+                            break;
+                        case 15:
+                            t1 = parseInt(Math.random()*5)+1;
+                            t2 = parseInt(Math.random()*5)+5;
+                            t3 = parseInt(Math.random()*5)+1;
+                            t4 = parseInt(Math.random()*5)+5;
+                            a = '<span class="frac"><sup>'+t1*t3+'</sup><span>/</span><sub>'+t2*t4+'</sub></span>';
+                            return '<span class="frac"><sup>'+t1+'</sup><span>/</span><sub>'+t2+'</sub></span> \u00D7 <span class="frac"><sup>'+t3+'</sup><span>/</span><sub>'+t4+'</sub></span> = <span id="answer"></span>';
+                            break;
+                        case 16:
+                            t1 = (parseInt(Math.random()*7)+3)*10;
+                            t2 = (parseInt(Math.random()*8)+2)*10;
+                            a = t1*t2;
+                            return t1+' \u00D7 '+t2+' = <span id="answer"></span>';
+                            break;
+                        case 17:
+                            t1 = parseInt(Math.random()*89)+20;
+                            t2 = parseInt(Math.random()*5)+5;
+                            t1 *= t2;
+                            a = t1/t2;
+                            return t1+' \u00F7 '+t2+' = <span id="answer"></span>';
+                            break;
+                        case 18:
+                            t1 = parseInt(Math.random()*9)+1;
+                            t2 = 10;
+                            a = t1/1000;
+                            a.toFixed(3);
+                            return t1/100+' \u00F7 '+t2+' = <span id="answer"></span>';
+                            break;
+                            break;
+                        case 19:
+                            t1 = parseInt(Math.random()*9000)+1000;
+                            t2 = 1000
+                            a = t1*t2;
+                            return t1+' \u00D7 '+t2+' = <span id="answer"></span>';
+                            break;
+                        case 20:
+                            t2 = parseInt(Math.random()*7)+13;
+                            t1 = parseInt(Math.random()*44)+8;
+                            t1*= t2;
+                            a = t1/t2;
+                            return t1+' \u00F7 '+t2+' = <span id="answer"></span>';
+                            break;
+                        case 21:
+                            t1 = parseInt(Math.random()*5)+5;
+                            t2 = parseInt(Math.random()*400)+100
+                            a = t1 - t2/100;
+                            a = a.toFixed(2);
+                            return t1+' - '+(t2-t2%100)/100+'.'+t2%100+' = <span id="answer"></span>';
+                            break;
+                        case 22:
+                            t1 = parseInt(Math.random()*9000)+1000;
+                            t2 = parseInt(Math.random()*90)+10;
+                            a = t1*t2;
+                            return t1+' \u00D7 '+t2+' = <span id="answer"></span>';
+                            break;
+                        case 23:
+                            t1 = parseInt(Math.random()*6)+1;
+                            t2 = parseInt(Math.random()*6)+7;
+                            t3 = parseInt(Math.random()*4)+1;
+                            a = t1*2 + t3;
+                            a = '<span class="frac"><sup>'+a+'</sup><span>/</span><sub>'+t2*2+'</sub></span>';
+                            return '<span class="frac"><sup>'+t1+'</sup><span>/</span><sub>'+t2+'</sub></span> + <span class="frac"><sup>'+t3+'</sup><span>/</span><sub>'+t2*2+'</sub></span> = <span id="answer"></span>';
+                            break;
+                        case 24:
+                            t1 = parseInt(Math.random()*900)+100;
+                            t2 = parseInt(Math.random()*20)+40;
+                            a = t1*t2;
+                            return t1+' \u00D7 '+t2+' = <span id="answer"></span>';
+                            break;
+                        case 25:
+                            t1 = parseInt(Math.random()*900)+100;
+                            t2 = (parseInt(Math.random()*4)+1)*10000;
+                            t2+= (parseInt(Math.random()*9)+1)*1000;
+                            t2+= (parseInt(Math.random()*9)+1)*100;
+                            t2+= (parseInt(Math.random()*9)+1)*10;
+                            t2+= parseInt(Math.random()*7)+1;
+                            a = t1/10 - t2/1000;
+                            a = a.toFixed(3);
+                            return (t1-t1%10)/10+'.'+t1%10+' - '+(t2-t2%1000)/1000+'.'+t2%1000+' = <span id="answer"></span>';
+                            break;
+                        case 26:
+                            t1 = parseInt(Math.random()*6)+1;
+                            t2 = parseInt(Math.random()*6)+7;
+                            t3 = t2 * 2;
+                            a = '<span class="frac"><sup>'+(3*t1+t3)+'</sup><span>/</span><sub>'+(t1*t3)+'</sub></span>';
+                            return '<span class="frac"><sup>'+1+'</sup><span>/</span><sub>'+t1+'</sub></span> + <span class="frac"><sup>'+1+'</sup><span>/</span><sub>'+t2+'</sub></span> + <span class="frac"><sup>'+1+'</sup><span>/</span><sub>'+t3+'</sub></span> = <span id="answer"></span>';
+                            break;
+                        case 27:
+                            t1 = parseInt(Math.random()*5)+3;
+                            t2 = t1+parseInt(Math.random()*5)+1;
+                            a = ' <span class="frac"><sup>'+1+'</sup><span>/</span><sub>'+t2+'</sub></span>';
+                            return '<span class="frac"><sup>'+t1+'</sup><span>/</span><sub>'+t2+'</sub></span> \u00F7 '+t1+' = <span id="answer"></span>';
+                            break;
+                        case 28:
+                            t1 = parseInt(Math.random()*4)+5;
+                            t2 = t1+parseInt(Math.random()*4)+1;
+                            t3 = parseInt(Math.random()*4)+2;
+                            a = ' <span class="frac"><sup>'+t1+'</sup><span>/</span><sub>'+t2*t3+'</sub></span>';
+                            return '<span class="frac"><sup>'+t1+'</sup><span>/</span><sub>'+t2+'</sub></span> \u00F7 '+t3+' = <span id="answer"></span>';
+                            break;
+                        case 29:
+                            t1 = (parseInt(Math.random()*5)*2)+1;
+                            t2 = (parseInt(Math.random()*90)+10)*10;
+                            a = t1*t2/20;
+                            return t1*5+'% of '+t2+' = <span id="answer"></span>';
+                            break;
+                        case 30:
+                            t1 = 1;
+                            t2 = parseInt(Math.random()*6)+7;
+                            t3 = parseInt(Math.random()*(t2*2-2))+2;
+                            t4 = parseInt(Math.random()*3)+1;
+                            a = t1*2 + t3;
+                            a = t4+' <span class="frac"><sup>'+a+'</sup><span>/</span><sub>'+t2*2+'</sub></span>';
+                            return t4+' <span class="frac"><sup>'+t1+'</sup><span>/</span><sub>'+t2+'</sub></span> + <span class="frac"><sup>'+t3+'</sup><span>/</span><sub>'+t2*2+'</sub></span> = <span id="answer"></span>';
+                            break;
+                        case 31:
+                            t1 = parseInt(Math.random()*8)+2;
+                            t2 = (parseInt(Math.random()*9)+1)*100;
+                            a = t1*t2/100;
+                            return t1+'% of '+t2+' = <span id="answer"></span>';
+                            break;
+                        case 32:
+                            t1 = parseInt(Math.random()*3)+4;
+                            t2 = parseInt(Math.random()*3)+5;
+                            t3 = parseInt(Math.random()*4)+1;
+                            t4 = parseInt(Math.random()*3)+8;
+                            a = '<span class="frac"><sup>'+(t1*t4-t2*t3)+'</sup><span>/</span><sub>'+t2*t4+'</sub></span>';
+                            return '<span class="frac"><sup>'+t1+'</sup><span>/</span><sub>'+t2+'</sub></span> - <span class="frac"><sup>'+t3+'</sup><span>/</span><sub>'+t4+'</sub></span> = <span id="answer"></span>';
+                            break;
+                        case 33:
+                            t1 = parseInt(Math.random()*4)+6;
+                            t2 = (parseInt(Math.random()*9)+1)*100;
+                            a = t1*t2/10;
+                            a.toFixed(2);
+                            return t1/10+' \u00D7 '+t2+' = <span id="answer"></span>';
+                            break;
+                        case 34:
+                            t1 = 15;
+                            t2 = (parseInt(Math.random()*90)+10)*100;
+                            a = t1*t2/100;
+                            return t1+'% of '+t2+' = <span id="answer"></span>';
+                            break;
+                        case 35:
+                            t1 = parseInt(Math.random()*20)+40;
+                            a = 1.5*t1;
+                            a = a.toFixed(1);
+                            return 1+' <span class="frac"><sup>'+1+'</sup><span>/</span><sub>'+2+'</sub></span> \u00D7 '+t1+' = <span id="answer"></span>';
+                            break;
+                        case 36:
+                            t1 = parseInt(Math.random()*19)+29;
+                            t2 = parseInt(Math.random()*19)+41;
+                            t1 *= t2;
+                            a = t1/t2;
+                            return t1+' \u00F7 '+t2+' = <span id="answer"></span>';
+                            break;
+                        default:
+                            a='';
+                            return 'Not Programmed Yet<span id="answer"></span>';
+                            
+                    }
+                    //$('#question').fadeIn(500);
+                }
+                function reveal(){
+                    $('#answer').html(a);
+                    $('#answer').fadeIn(500);
+                }
+                function hide(){
+                    $('#answer').fadeOut(500);
+                }
+                function printPage(){
+                    //
+                }
+                function dlPaper(){
+                    var rand = parseInt(Math.random()*50)+1;
+                    $('#paper').attr("href","papers/v1_"+rand+".pdf");
+                }
+            });
+        </script>
+        
+    </body>
+</html>

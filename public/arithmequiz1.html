@@ -160,7 +160,7 @@
                     <button id ="hide">Hide Answer</button>
                     <br>
                     <br>
-                    <a id="paper" target="_blank"><button id ="print">Whole Paper</button></a>
+                    <a id="paper" target="_blank" href="arithmequiz1print.html"><button id ="print">Whole Paper</button></a>
                 </td>
             </tr>
         </table>
@@ -169,11 +169,11 @@
             var choice =1;
             $(document).ready(function(){
                 next();
-                dlPaper;
+//                dlPaper;
                 $('#next').on('click',next);
                 $('#reveal').on('click',reveal);
                 $('#hide').on('click',hide);
-                $('#print').on('click',dlPaper);
+//                $('#print').on('click',dlPaper);
 //                $('#print').on('click',printPage);
                 $('select').change(function(){
                     choice=parseInt($('select option:selected').val());
