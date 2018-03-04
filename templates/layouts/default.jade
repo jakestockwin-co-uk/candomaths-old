@@ -34,7 +34,7 @@ html
 
 	//- HTML BODY
 	body#page-top(data-spy="scroll", data-target=".navbar-fixed-top")
-		
+
 		//- HEADER
 		#header: .container
 			div(role="navigation").navbar.navbar-default.navbar-fixed-top
@@ -48,10 +48,11 @@ html
 						a.navbar-brand(href='/') CanDoMaths
 					.collapse.navbar-collapse
 						ul.nav.navbar-nav.navbar-left
-							li: a.page-scroll(href='#about') About
-							li: a.page-scroll(href='#coreIdeas') Core Ideas
-							li: a.page-scroll(href='#linksAndResources') Links and Resources
-							li: a.page-scroll(href='#contact') Contact Us
+							li: a.page-scroll(href='/#about') About
+							li: a.page-scroll(href='/#coreIdeas') Core Ideas
+							li: a.page-scroll(href='/#linksAndResources') Links and Resources
+							li: a.page-scroll(href='/#contact') Contact Us
+							li: a(href='/blog') Blog
 						ul.nav.navbar-nav.navbar-right
 							if user
 								if user.canAccessKeystone
@@ -80,9 +81,9 @@ html
 
 			//- You don't _have_ to include a link saying your site is powered by KeystoneJS, but we appreciate it!
 			.col-sm-4.col-sm-offset-4.text-center: p &copy; 2016 CanDoMaths
-			.col-sm-4.text-right.hidden-xs: p Web design by 
+			.col-sm-4.text-right.hidden-xs: p Web design by
 				a(href="http://jakestockwin.co.uk") Jake Stockwin
-			.col-sm-4.visible-xs.text-center: p Web design by 
+			.col-sm-4.visible-xs.text-center: p Web design by
 				a(href="http://jakestockwin.co.uk") Jake Stockwin
 
 

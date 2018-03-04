@@ -17,4 +17,6 @@ exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.index);
 	app.post('/email', keystone.middleware.api, routes.api.email.create);
+	app.get('/blog', routes.views.blog);
+	app.get('/blog/post/:post', routes.views.post);
 };

@@ -75,6 +75,7 @@ function configureKeystone () {
 		users: 'users',
 		content: ['resources', 'useful-links', 'files'],
 		emails: 'emails',
+		blog: 'posts',
 	});
 
 	if (keystone.get('env') === 'production') {
