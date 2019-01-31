@@ -122,7 +122,7 @@
                 <td></td>
                 <td>
                     <img id="cover" src="cover3.png">
-                    <div class="page-break"></div>
+                    <div id="coverbreak" class="page-break"></div>
                     <div id="questionSection"></div>
                 </td>
             </tr>
@@ -138,6 +138,8 @@
                 var pageparams = pagestring.split("=");
                 if(pageparams.length>1){
                     questionnumber = parseInt(pageparams[1]);
+                    $('#cover').hide();
+                    $('#coverbreak').hide();
                 }
                 for(var i = 1; i<37; i++){
                     choice = i;
