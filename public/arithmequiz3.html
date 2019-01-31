@@ -161,6 +161,7 @@
                     <br>
                     <br>
                     <a id="paper" target="_blank" href="arithmequiz3print.html"><button id ="print">Whole Paper</button></a>
+                    <a id="papersame" target="_blank"><button id ="printsame">Whole Paper</br>(Just this question)</button></a>
                 </td>
             </tr>
         </table>
@@ -180,6 +181,8 @@
                     next();
                 });
                 function next(){
+                    var singlepagelink = "arithmequiz3print.html?question=" + choice;
+                    $('#papersame').attr("href",singlepagelink);
                     $('#answer').text('');
                     switch(choice){
                         case 1:
